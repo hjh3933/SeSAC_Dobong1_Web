@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!--기본은 en-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--웬만하면 문서당 하나만 있는게 좋음-->
+    <!-- Ctrl + / 단축키 해제도 같음 -->
+    <!-- <h1>안녕하세요</h1>
+    <h2>안녕하세요</h2>
+    <h3>안녕하세요</h3>
+    <h4>안녕하세요</h4>
+    <h5>안녕하세요</h5>
+    <h6>안녕하세요</h6> -->
+
+    <h2>오늘의 일기</h2>
+    <p>
+        오늘은  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 날씨가 흐리네요
+     <!--entity code는 구글 검색해보세요  -->
+    <br/>
+        내일은 친구들과 약속이 있습니다.
+    <br/> 
+        1월 1일은 새싹 휴가입니다
+    <br/>
+        수요일에 다시 만나요
+    </p>
+
+    <hr/>
+    <h4>오늘의 할일</h4>
+    <!-- type속성 disc(default) square circle none -->
+    <ul type="square">
+        <li>html복습하기</li>
+        <li>운동하기</li>
+        <li>점심에 김밥먹기</li>
+    </ul>
+
+    <h4>카페라떼 만드는 방법</h4>
+    <!-- 1(default) A a I i(roma) -->
+    <!-- reversed start -->
+    <ol type="1" reversed start="2">
+        <li><b>우유</b>를 <strong>컵</strong>에 넣습니다</li>
+        <li><i>얼음</i>을 <em>가득</em> 채웁니다</li>
+        <li><del>에스프레소</del>를 내려줍니다</li>
+        <li><u>맛있게 먹습니다</u></li>
+    </ol>
+
+    <!-- 문자 꾸미기 tag -->
+    <!-- b, i 모습 strong em 강조의 의미 -->
+    <!-- css로 다 가능해서 그게 더 편합니다 -->
+
+    <hr>
+    <h4>리스트 안에 리스트 넣기</h4>
+    <h5>내가 좋아하는 음식</h5>
+    <ul>
+        <li>양식
+            <ol type="a">
+                <li>피자</li>
+                <li>파스타</li>
+            </ol>
+        </li>
+        <li>한식
+            <ol>
+                <li>비빔밥</li>
+                <li>삼겹살</li>
+            </ol>
+        </li>
+        <li>일식
+            <ol>
+                <li>라멘</li>
+                <li>초밥
+                    <ul>
+                        <li>연어초밥</li>
+                        <li>장어초밥</li>
+                        <li>생새우초밥</li>
+                    </ul>
+                </li>
+            </ol>
+        </li>
+    </ul>
+    <pre>이 태그는 쓰여진 그대로 보여줘요             띄어쓰기도</pre>
+
+    <details>
+        <summary>제목</summary>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quidem, voluptas at suscipit nemo illo exercitationem, tempora enim cumque dignissimos dicta animi quia in eius quos illum architecto harum. Accusamus!
+        <ul>
+            <li>아무태그나 넣어도</li>
+            <li>숨겨집니다</li>
+        </ul>
+    </details>
+    
+    <h4>a태그와 img태그 써보기</h4>
+    <!-- alt설명은 꼭 적기 width, height로 너비와 높이 조절-->
+    <img src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi3.ruliweb.com%2Fimg%2F21%2F07%2F05%2F17a7481a7b2223b96.jpg&type=sc960_832" alt="고양이 사진" width="300"/>
+    <br>
+    <!-- 절대경로 -->
+    <img src="/01_html/img/dog.jpg" alt="강아지 사진" width="300">
+    <!-- /는 상위파일(ssac) 의미 -->
+    <!-- 절대경로는 오류발생가능성 있어서 상대경로 추천 -->
+    <br>
+    <img src="./img/dog.jpg" alt="강아지 사진" width="300">
+    <!-- ./ = 내 위치를 의미함 -->
+    <br/>
+    <!-- target속성 _blank새창, _self현재창 -->
+    <a href="https://www.naver.com/" target="_self">naver로 이동</a>
+    <a href="./html_start.html" target="_blank">start로 이동</a>
+    <!-- 간단 실습
+    사진 아무거나 저장하고 사진 눌렀을 때 구글로 이동 -->
+    <br>
+    <a href="https://www.google.com/" target="_blank"><img src="./img/daram.jpg" alt="다람쥐사진" width="300"></a>
+</body>
+</html>

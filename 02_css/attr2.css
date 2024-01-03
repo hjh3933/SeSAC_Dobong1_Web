@@ -1,0 +1,78 @@
+.d-block {
+    display: block;
+    background-color: aquamarine;
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    padding: 15px;
+    margin: 20px;
+}
+.d-inline {
+    display: inline;
+    background-color: pink;
+    width: 1000px;
+    height: 200px;
+    /* 가로만 적용, 세로는 적용안됨 */
+    padding: 15px;
+    margin: 20px;    
+}
+.d-inline-block {
+    display: inline-block;
+    background-color: skyblue;
+    width: 100px;
+    height: 100px;
+    border: 1px solid gold;
+    padding: 15px;
+    margin: 20px;
+}
+.parent {
+    width: 400px;
+    height: 200px;
+    background-color: salmon;
+    /* 
+    width: 300px; -> min-width는 그대로 400
+    width: 500px; -> max-width는 그대로 400
+    */
+}
+.parent > .min {
+    min-width: 400px;
+    height: 100px;
+    background-color: gold;
+}
+.parent > .max {
+    max-width: 400px;
+    height: 100px;
+    background-color: greenyellow;
+}
+.box {
+    background-color: burlywood;
+    border: 1px solid black;
+}
+.box-px {
+    width: 50px;
+    height: 50px;
+}
+.box-view {
+    /* viewport 보이는 화면의 퍼센테이지로 적용 */
+    width: 50vw;
+    height: 50vh;
+}
+.box-per {
+    /* 부모 기반 퍼센트 현재는 body*/
+    width: 50%;
+    /* body는 기본적으로 높이가 없음 */
+    height: 50%;
+}
+
+/* em, rem은 글자 이외에도 다양한 크기 설정에 사용할 수 있다. */
+/* 1rem = 16px, 비례해서 증가 */
+.rem {
+    /* 32px */
+    font-size: 2rem;
+}
+
+/* 부모의 글꼴을 가져와서 적용 */
+.em {
+    font-size: 2em;
+}
+/* body(16px)의 2배, 4배(64px), 6배가 된 것(128px) */

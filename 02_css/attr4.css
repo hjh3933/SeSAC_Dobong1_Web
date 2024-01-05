@@ -1,0 +1,65 @@
+body {
+    height: 2000px;
+}
+.box {
+    display: inline-block;
+    width: 400px;
+    height: 200px;
+    border: 1px solid black;
+}
+.background {
+    /* 단축 속성 */
+    /* background: color image repeat position/size; */
+    background: beige;
+    /* background: linear-gradient(to bottom, black, white, orange); */
+}
+.background-image {
+    background-image: url('./img/small_img.png');
+    
+    /* 1. background-repeat(repeat기본값) */
+    background-repeat: repeat;
+    background-repeat: repeat-y;
+    background-repeat: repeat-x;
+    background-repeat: no-repeat;
+    
+    /* background-position center, bottom, left, right, top의 키워드로 지정가능*/
+    /* background-position: center; */
+    /* background-position: center top; */
+    /* background-position: 100px 200px; */
+    /* 가로축x 세로축y 순서로 적용 */
+    /* background-position: 100px; */
+    /* xy 동일하게적용 */
+
+    /* 3. background-size */
+    /* 하나적으면 가로축만 적용 세로는 비율대로 자동 적용 */
+    background-size: 50px;
+    /* 가로 세로 */
+    background-size: 90px 50px;
+    /* 손실없는 가장 큰 크기 */
+    background-size: contain;
+    /* 가장 긴 변의 길이에 맞추는 크기, box를 전부 덮을 수 있는 크기*/
+    background-size: cover;
+
+    /* 4. background-attachment */
+    background-attachment: fixed;
+    background-color: palevioletred;
+}
+.box1 {
+    width: 800px;
+    height: 500px;
+    background-image: url(https://item.kakaocdn.net/do/d84248170c2c52303db27306a00fb861f604e7b0e6900f9ac53a43965300eb9a);
+    border: 1px solid black;
+    background-color: skyblue;
+}
+.b1 {
+    background-repeat: repeat-x;
+    background-position: center;
+}
+.b2 {
+    background-size: contain;
+    background-position: 100px 30px;
+}
+.b3 {
+    background-size: cover;
+    background-position: 400px;
+}

@@ -1,0 +1,139 @@
+.container {
+    max-width: 1000px;
+    height: 400px;
+    /* auto = 부모 기준 가운데 정렬 */
+    margin: 0 auto;
+    background-color: #333;
+    display: flex;
+    /* flex-direction (주축의 방향)
+        -row : 좌>우
+        -row-reverse: 우>좌
+        -column: 상>하
+        -column-reverse: 하>상
+        row(기본값)
+    */
+    flex-direction: row;
+    /* flex-direction: row-reverse; */
+    /* flex-direction: column; */
+    /* flex-direction: column-reverse; */
+
+    /* flex는 기본적으로 줄바꿈이 없어 자리가 모자라도 한줄에 꾸겨진다 */
+    /* flex-wrap으로 해결! 기본값 no-wrap */
+    flex-wrap: wrap;
+    /* 밑에 바로붙는것X 줄 수만큼 컨테이너 공간을 나누어 줄바꿈이 된다(컨테이너 높이에 따라 띄어짐) */
+
+    /* justify-content: 주축의 정렬방법 
+        - flex-start(default): 아이템을 시작점 기준으로 나열(시작점은 reverse로 변경가능)
+        - flex-end: 아이템을 끝점 기준으로 나열
+        - center: 중앙정렬
+        - space-between: 처음과 마지막 아이템을 양 끝에 붙이고, 나머지 영역을 공평하게 나눔
+        - space-around: start부터 첫 아이템의 간격, 마지막 아이템부터 end까지의 간격 * 2 = 아이템 끼리의 간격
+        (아이템 양옆의 간격을 동일하게 나눔, 아이템끼리의 간격은 벽과의 간격의 두배가 된다)
+        - space-evenly: 아이템들의 모든 영역을 공평하게 나눔
+    */
+    justify-content: flex-start;
+    /* justify-content: flex-end; */
+    /* justify-content: center; */
+    /* justify-content: space-between; */
+    /* justify-content: space-around; */
+    /* justify-content: space-evenly; */
+
+    /* align-items 한줄 교차축 정렬
+        flex-direction이 row(주축)일때 교차축은 수직
+        flex-direction이 column(주축)일때 교차축은 수평
+    */
+    align-items: stretch;
+    /* align-items: flex-start; */
+    /* align-items: flex-end; */
+    /* align-items: center; */
+
+    /* align-content: 여러줄 교차축 정렬 
+        -flex-wrap: wrap과 함께 올 수 있는 속성(필수)
+    */
+    /* align-content: stretch; */
+    /* 기본값: stretch */
+    /* align-content: flex-start; */
+    /* align-content: flex-end; */
+    /* align-content: center; */
+    /* align-content: space-between; */
+    /* align-content: space-around; */
+    /* align-content: space-evenly; */
+}
+.items {
+    width: 100px;
+    height: 100px;
+    font-size: 2rem;
+    /* 32px */
+    text-align: center;
+    line-height: 100px;
+}
+.item1 {
+    background-color: red;
+}
+.item2 {
+    background-color: orange;
+}
+.item3 {
+    background-color: yellow;
+}
+.item4 {
+    background-color: green;
+}
+.item5 {
+    background-color: blue;
+}
+/* ------------------------- */
+.containerT {
+    width: 500px;
+    height: 500px;
+    background-color: palegoldenrod;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: row;
+    /* justify-content: flex-start; */
+    /* justify-content: flex-end; */
+    /* flex-direction: column; */
+    flex-wrap: nowrap;
+    flex-wrap: wrap;
+}
+.itemsT {
+    width: 100px;
+    height: 100px;
+}
+.itemT1 {
+    background-color: red;
+}
+.itemT2 {
+    background-color: blue;
+}
+.itemT3 {
+    background-color: green;
+}
+
+/* -------------------------------- */
+.container0 {
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    display: flex;
+    background-color: orange;
+    /* 가로, 세로 정렬해보기 */
+    flex-direction: row;
+    flex-direction: column;
+    /* 두 줄이 되도록 정렬하기 */
+    flex-wrap: wrap;
+    /* 하나로 뭉쳐서 가로 세로 정렬하기 */
+    justify-content: flex-start;
+    align-content: flex-start;
+    /* 각각의 줄에서 가로 세로 정렬하기 */
+    justify-content: flex-end;
+    align-content: flex-end;
+    /* 개발자 도구에서 direction을 바꿔가며 설정 실험 가능 */
+
+}
+.items0 {
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    border: 1px solid salmon;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex</title>
+    <link rel="stylesheet" href="./attr5.css">
+</head>
+<body>
+    <h1>Flex와 친해지기</h1>
+    <!-- .container>.items.item$($)*5 -->
+    <div class="container">
+        <div class="items item1">1</div>
+        <div class="items item2">2</div>
+        <div class="items item3">3</div>
+        <div class="items item4">4</div>
+        <div class="items item5">5</div>
+        <div class="items item1">1</div>
+        <div class="items item2">2</div>
+        <div class="items item3">3</div>
+        <div class="items item4">4</div>
+        <div class="items item5">5</div>
+        <!-- <div class="items item1">1</div>
+        <div class="items item2">2</div>
+        <div class="items item3">3</div>
+        <div class="items item4">4</div>
+        <div class="items item5">5</div> -->
+    </div>
+
+    <br>
+    <br>
+
+    <div class="containerT">
+        <div class="itemsT itemT1">item1</div>
+        <div class="itemsT itemT2">item2</div>
+        <div class="itemsT itemT3">item3</div>
+    </div>
+
+    <br>
+    <div class="containerT">
+        <div class="itemsT itemT1">item1</div>
+        <div class="itemsT itemT2">item2</div>
+        <div class="itemsT itemT3">item3</div>
+        <div class="itemsT itemT1">item1</div>
+        <div class="itemsT itemT2">item2</div>
+        <div class="itemsT itemT3">item3</div>
+        <div class="itemsT itemT1">item1</div>
+        <div class="itemsT itemT2">item2</div>
+        <div class="itemsT itemT3">item3</div>
+    </div>
+
+    <br>
+
+    <div class="container0">
+        <div class="items0 item01">item1</div>
+        <div class="items0 item02">item2</div>
+        <div class="items0 item03">item3</div>
+        <div class="items0 item01">item1</div>
+        <div class="items0 item02">item2</div>
+        <div class="items0 item03">item3</div>
+        <div class="items0 item01">item1</div>
+        <div class="items0 item02">item2</div>
+    </div>
+
+    <hr>
+    <ol>
+        <li>css3 등장부터 나타난 방식</li>
+        <li>화면 레이아웃을 구성할 때 가장많이 사용하는 방법 중 하나</li>
+        <li>부모요소에 flex를 선언하면 자식 요소들의 레이아웃이 변경된다</li>
+    </ol>
+
+    <h3>flex-container</h3>
+    <ul>
+        <li>flex 속성을 갖는 요소, flex 부모요소라고도 함</li>
+        <li>
+            컨테이너에 적용가능 속성
+            <ol>
+                <li>flex-direction: 요소의 시작점의 위치를 변경하는 기능, 123->321처럼 변경가능, 가로와 세로 그리고 각 방향의 역전이 있다.
+                </li>
+                <li>flex-wrap: 기본적으로 줄바꿈이 되지 않는 flex요소들을 줄바꿈 할 수 있는 기능, 아래로 내려간 요소들은 바로 밑에 붙는 것이 아니라 줄 수 만큼 세로 길이를 등분하고 각 줄의 왼쪽위(기본)에 정렬되는 방식이다</li>
+                <li>justify-content: (주축의)시작점과 끝점을 기준으로 요소가 정렬되는 방식, 공백을 나누어 갖는 방식을 설정하는 기능, 시작, 끝, 가운데 정렬과 3가지 방식의 공백을 등분하는 정렬이 있다.</li>
+                <li>align-item: 교차축정렬(한줄), flex-start, flex-end, center가 있다. </li>
+                <li>align-content: 교차죽정렬(여러줄): justify-content의 교차축 버전이라고 생각하면 편함, 여러줄이 뭉쳐서 정렬된다는 특징이 있다.</li>
+            </ol>
+        </li>
+    </ul>
+
+
+
+</body>
+</html>

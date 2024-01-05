@@ -76,3 +76,86 @@
     font-size: 2em;
 }
 /* body(16px)의 2배, 4배(64px), 6배가 된 것(128px) */
+.square {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    /* 손가락 모양으로 바뀜 */
+    cursor: pointer;
+    background-color: palegoldenrod;
+}
+.border {
+    background-color: skyblue;
+    /* 단축 속성: 굵기 모양 색깔 */
+    /* border: 3px solid gray; */
+    border-color: gray red blue;
+    border-style: dotted;
+    border-width: 3px;
+}
+.rounded {
+    background-color: pink;
+    /* border-radius: 50%; */
+    border-radius: 5px 10px 20px 40px;
+    border-radius: 5px 20px 40px;
+    border-radius: 5px 40px;
+}
+.bor {
+    width: 200px;
+    height: 200px;
+    border: 5px solid salmon;
+    background-color: beige;
+    border-radius: 10px 5px 50px 30px;
+}
+.box-sizing {
+    padding: 20px;
+    border: 15px solid green;
+    background-color: greenyellow;
+}
+.content-box {
+    /* 기본값이 content-box */
+    box-sizing: content-box;
+}
+.border-box {
+    /* padding, border를 사이즈 내부에서 해결 */
+    box-sizing: border-box;
+}
+.d-none {
+    /* 속성+자리 0*/
+    display: none;
+    background-color: red;
+}
+.invisible {
+    /* 속성 0 */
+    visibility: hidden;
+    background-color: orangered;
+}
+.opacity-0 {
+    /* 보이는것만 0 */
+    opacity: 0;
+    background-color: tomato;
+}
+.testBox {
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+}
+.testBox:hover {
+    opacity: 0;
+}
+img {
+    width: 200px;
+}
+.overflow-hidden {
+    overflow: hidden;
+}
+.overflow-auto {
+    overflow: auto;
+}
+.overflow-scroll {
+    overflow: scroll;
+}
+.overflow-visible {
+    /* 기본값 */
+    overflow: visible;
+}
+    

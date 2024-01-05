@@ -1,0 +1,58 @@
+.img-box {
+    background-color: pink;
+    width: 400px;
+    height: 250px;
+}
+.img-box img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border: 1px solid gold;
+
+    /* transition hover에 두면 돌아올때 개빨리 돌아옴 여기다 해야함*/
+    transition-duration: 5s;
+}
+.img-box img:hover {
+    /* transform
+    1. skew()
+    -원하는 각도만큼 요소를 기울임
+    -X,Y축 나눠서 속성 부여 가능
+        skewX()
+        skewY()
+    */
+    transform: skewX(30deg);
+    transform: skewY(30deg);
+    transform: skew(30deg);
+    /* 2. scale
+        -크기 조절함수(확대, 축소)
+        -1보다 작은 소수는 축소, 1보다 크면 확대(비율)
+    */
+    /* 밑에꺼만 적용됨 동시에 하고 싶으면 띄어쓰기로 한줄에 적어야함 */
+
+    transform: scaleX(1.5);
+    transform: scaleY(0.5);
+    transform: scale(2,0.5);
+
+    /* 3. translate
+        -이동
+        -translateX(): X축으로 이동
+        -translateY(): Y축으로 이동
+        -translate(): x축, y축 기준으로 이동
+    */
+    transform: translateX(50px);
+    transform: translateY(50px);
+    transform: translate(-50px, 10px);
+
+    /* 4. rotate
+        -회전(deg단위)
+        -rotateX(), rotateY(): 각각 x축과 y축 기준으로 회전(3d)
+            perspective와 함께 와야한다(transform의 맨 앞에 온다)
+            px거리가 길어지면 움직임 정도가 적어보임(가까울수록 커짐)
+        -rotate(): 시계방향으로 회전(2d)
+    */
+    transform: rotate(-90deg);
+    transform: perspective(500px) rotateX(45deg);
+    transform: perspective(400px) rotateY(180deg);
+
+    /* backface-visibility: hidden; 뒤집었을 때 뒷면 안보이게 설정하는 것*/
+}

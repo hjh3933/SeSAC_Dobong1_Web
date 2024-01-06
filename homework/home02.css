@@ -1,0 +1,40 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+.container {
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+    position: relative;
+}
+.container .items {
+    width: 500px;
+    height: 300px;
+    position: absolute;
+}
+.container .items img {
+    width: 100%;
+    height: 100%;
+    transform: skewY(20deg);
+    transition-duration: 1s;
+}
+.container .item1 {
+    left: 20%;
+    z-index: 10;
+}
+.container .item2 {
+    z-index: 5;
+}
+.container .item3 {
+    z-index: 2;
+    right: 20%;
+}
+.container .items img:hover {
+    width: 100%;
+    height: 100%;
+    transform: skewY(0deg);
+    cursor: pointer;
+}

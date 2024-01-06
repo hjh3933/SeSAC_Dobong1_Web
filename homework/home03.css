@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background:linear-gradient(red, orange, pink, yellow)
+}
+.imgbox {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-image: url(./img/mokoko.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: 10px solid white;
+    box-sizing: border-box;
+}

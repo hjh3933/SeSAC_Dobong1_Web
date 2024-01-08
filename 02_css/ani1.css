@@ -1,0 +1,35 @@
+.container {
+    position: relative;
+    width: 1000px;
+    height: 800px;
+    border: 1px solid salmon;
+}
+.ball {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(yellow, orange, red);
+    position: absolute;
+    animation-name: ball;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+@keyframes ball {
+    0%, 100% {
+        top: 0px;
+        left: 0px;
+    }
+    25% {
+        top: 0px;
+        left: 900px;
+    }
+    50% {
+        top: 700px;
+        left: 900px;
+    }
+    75% {
+        top: 700px;
+        left: 0px;
+    }
+}

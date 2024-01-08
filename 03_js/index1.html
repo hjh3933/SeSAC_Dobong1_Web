@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 어디에 써도 상관없지만 순서대로 작동한다 -->
+    <script>
+        alert("헤드 그런데 js 파일 링크 위")
+    </script>
+    <script src="./index1.js"></script>
+    <script>
+        alert("헤드 그런데 js 파일 링크 아래")
+    </script>
+</head>
+<script>
+    alert("헤드랑 바디 사이");
+</script>
+<body>
+    <!-- body까지의 js읽히고 body가 끝나고 나서 h1이 뜬다 -->
+    <h1>hello, Js World!</h1>
+    <script>
+        alert("바디 안쪽");
+    </script>
+</body>
+<!-- body이후 h1이후 작동 -->
+<script>
+    alert("바디 아래");
+</script>
+</html>

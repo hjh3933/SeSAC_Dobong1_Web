@@ -1,0 +1,16 @@
+.txt {
+    position: relative;
+    animation: txt 5s linear;
+}
+@keyframes txt {
+    0% {
+        top: 0px;
+        left: 2000px;
+        display: none;
+    }
+
+    100% {
+        top: 0px;
+        left: 0px;
+    }
+}

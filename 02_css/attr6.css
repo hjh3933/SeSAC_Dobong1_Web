@@ -56,3 +56,42 @@
 
     /* backface-visibility: hidden; 뒤집었을 때 뒷면 안보이게 설정하는 것*/
 }
+.box {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    background-color: burlywood;
+}
+.box1:hover {
+    background-color: palevioletred;
+    height: 120px;
+    width: 120px;
+    transition-duration: 1s;
+    /* transition-delay: 1s; */
+    /* 가로, 배경색은 바로, 높이만 딜레이와 듀레이션 적용 */
+    /* transition-property: height; */
+    transition-timing-function: ease;
+}
+.box2:hover {
+    /* transition 단축속성 */
+    /* transition: property duration(필수!) timing-function delay */
+    background-color: salmon;
+    transform: translateX(100px) scaleX(2);
+
+    /* transition: transform 0.5s linear 2s; */
+    /* transition: 2s 0.5s; */
+    /* 일부만 적으면 나머지는 기본값 all ease로 적용 */
+    transition: 2s;
+}
+.box3:hover {
+    /* .6 = 0.6 */
+    transition: .6s;
+
+    /* transition 먹음(0-10같은 범위에서 움직이는 것들은 transitio 가능) */
+    opacity: 0;
+
+    /* transition이 안먹음 */
+    /* visibility: hidden; */
+    /* display: none; */
+}
+

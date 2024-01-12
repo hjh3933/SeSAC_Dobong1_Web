@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 요소 추가 삭제</title>
+    <style>
+        button {
+            width: 150px;
+            height: 50px;
+        }
+    </style>
+    <script defer>
+        //defer 위부터 먼저 읽어서 요소가 null값으로 보이는 것을 방지하기 위해 미리 로드되도록하는(?) 그런 느낌
+        //js 파일 import 하는 경우에만 defer를 추가해서 dom요소 로드 후 실행 할 수 있다고 함
+        let ul = document.querySelector('ul')
+        console.log(ul);
+
+        function createNode() {
+            // let ul = document.querySelector('ul');
+            // console.log(ul);
+            let li = document.createElement('li');
+            li.innerText = '새로 추가된 리스트';
+            console.log('li: ',li);
+        }
+        //버튼을 클릭하면 함수 실행되기 때문에 이거는 잘될듯?(html body요소가 이미 로드된 거라서) 
+
+        function appendNode() {
+            let li = document.createElement('li');
+            li.innerText = '새로 추가된 리스트';
+            console.log('li: ',li);
+
+            //append(): 요소.append() 선택한 요소의 맨 뒤 자식요소로 추가된다.
+            let ul = document.querySelector('ul');
+            ul.append(li);
+            ul.append('text');  //그냥 text값도 넣을 수 있다.
+        }
+        function appendChildNode() {
+            let li = document.createElement('li');
+            li.innerText = '새로 추가된 리스트 append child';
+
+            //appendChild(): 선택한 요소의 맨 뒤 자식요소 추가
+            let ul = document.querySelector('ul');
+            ul.appendChild(li);
+            // ul.appendChild('text'); //text값은 들어가지 않아 error: appendChild는 요소 노드만 추가 가능
+
+        }
+        function prependNode() {
+            let li = document.createElement('li');
+            li.innerText = '새로 추가된 리스트 prepend child';
+
+            //prepend(): 선택한 요소의 맨 앞 자식요소 추가
+            let ul = document.querySelector('ul');
+            ul.prepend(li);
+            ul.prepend('text'); //text 추가 가능
+        }
+        //Q append 처럼 prependChild는 없는지 확인해보기 없
+
+        function before() {
+            //기존 노드 앞에 '형제' 요소로 추가
+            let standard = document.getElementById('li');
+
+            let li = document.createElement('li');
+            li.innerText = 'before';
+            standard.before(li);
+        }
+        function after() {
+            //기존 노드 뒤에 '형제' 요소로 추가
+            let standard = document.getElementById('li');
+
+            let li = document.createElement('li');
+            li.innerText = 'after';
+            standard.after(li);
+        }
+        function removeNode() {
+            //내가 선택한 요소를 삭제
+            let standard = document.getElementById('li');
+            standard.remove();
+        }
+        function removeChildNode() {
+            let ul = document.querySelector('ul');
+            let standard = document.getElementById('li');
+            
+            console.log(ul.removeChild(standard));  //동작은 위와 같음, 기준이 부모의 값이 되어 부모의 자식 요소를 삭제함
+        }
+
+    </script>
+</head>
+<body>
+    <!-- #id*5{$} 12345-->
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li id="li">3. standard</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <button onclick="createNode()">createNode</button>
+    <button onclick="appendNode()">appendNode</button>
+    <button onclick="appendChildNode()">appendChildNode</button>
+    <button onclick="prependNode()">prependNode</button>
+    <button onclick="before()">before</button>
+    <button onclick="after()">after</button>
+    <button onclick="removeNode()">removeNode</button>
+    <button onclick="removeChildNode()">removeChildNode</button>
+</body>
+</html>

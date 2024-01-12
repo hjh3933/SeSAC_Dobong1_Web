@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 다른 노드 접근하기</title>
+    <style>
+        button {
+            width: 100px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box" id="green">1</div>
+        previous 테스트
+        <!-- 주석 previous 테스트 -->
+        <div class="box" id="red">2</div>
+        next 테스트
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+    </div>
+
+    <button onclick="getParent()">getParent</button>
+    <button onclick="pElSibling()">pElSibling</button>
+    <button onclick="pNoSibling()">pNoSibling</button>
+    <button onclick="nElSibling()">nElSibling</button>
+    <button onclick="nNoSibling()">nNoSibling</button>
+
+    <script>
+        let container = document.getElementsByClassName('container');
+        let greenBox = document.getElementById('green');
+        let redBox = document.getElementById('red');
+
+        //parentNode: 부모요소를 가져온다
+        function getParent() {
+            console.log(greenBox.parentNode);
+        }
+
+        //이전형제
+        function pElSibling() {
+            console.log(redBox.previousElementSibling);
+        }   //이전 형제 '요소'가 나온 것
+        function pNoSibling() {
+            console.log(redBox.previousSibling);
+        }   //앞의 텍스트 값만 나온다(dom tree에서 바로 앞에 있는 '것' 반환) 주석까지 하나의 값으로 봄
+
+        //다음 형제 (앞의거랑 뒤에 형제를 가져온다는 점만 다르다)
+        function nElSibling() {
+            console.log(redBox.nextElementSibling);
+        }
+        function nNoSibling() {
+            console.log(redBox.nextSibling);
+        }
+
+
+    </script>
+</body>
+</html>

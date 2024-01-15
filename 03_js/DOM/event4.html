@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>방명록 만들기</title>
+  </head>
+  <body>
+    <h1>여기는 방명록!!</h1>
+    <form>
+      <label for="writer">작성자</label>
+      <input type="text" id="writer" autocomplete="off" />
+      <br />
+      <br />
+
+      <label for="content">내용</label>
+      <input type="text" id="content" style="width: 500px" autocomplete="off" />
+      <br />
+      <br />
+
+      <button type="button" onclick="writeNote();">등록</button>
+    </form>
+
+    <br />
+    <br />
+
+    <table id="table" border="1" cellpadding="10" cellspacing="1">
+      <tr>
+        <th>작성자</th>
+        <th>내용</th>
+        <th>작성일</th>
+      </tr>
+      <!-- 
+        코드 추가 예시
+        <tr>
+          <td>홍길동</td>
+          <td>하이</td>
+          <td>2022-10-05 12:34</td>
+        </tr>
+      -->
+    </table>
+
+    <script>
+      // TODO: practice14_설명.png 이미지의 조건을 만족하는 js 코드 작성
+      // writeNote() 함수를 미리 정의해두었습니다.
+
+      // [등록] 버튼 클릭시 writeNote() 함수가 실행되도록 인라인 방식으로 미리 설정해 두었습니다.
+      function writeNote(e) {
+
+        //변수 가져오기
+        let writer = document.querySelector('#writer').value;
+        let content = document.querySelector('#content').value;
+        let table = document.querySelector('table');
+        let date = new Date();
+
+        //테이블 칸 생성
+        let tr = document.createElement('tr');
+        let td1 = document.createElement('td');
+        let td2 = document.createElement('td');
+        let td3 = document.createElement('td');
+        
+        //테이블 내용 추가
+        td1.innerText = writer;
+        td2.innerText = content;
+        td3.innerText = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`   //yyyy-mm-dd hh:mm
+
+        //테이블 칸 추가
+        tr.append(td1, td2, td3);   //한번에 적어도 순서대로 쌓임
+        table.append(tr);
+
+        //칸 초기화(왜 writer, content로는 접근이 안될까요) 값만 가지고 있음 
+        //A. value를 가져와서 변수에 담으면 그냥 문자열이 저장되는 것이라고 한다 그래서 value변수로 초기화 해도 변화가없다.
+        document.querySelector('#writer').value = '';
+        document.querySelector('#content').value = '';
+      }
+
+    </script>
+  </body>
+</html>

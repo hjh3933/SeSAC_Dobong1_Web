@@ -62,7 +62,29 @@
         })
         //blur이벤트 focus를 벗어난 상태
 
+        //keyboard
+        txt.addEventListener('keydown', function(e) {
+            console.log('input에 keydown이벤트 발생');
+            //event 객체 e를 통해 접근
+            console.log('e: ',e);   //이벤트 내용, 입력한 키 등
+            console.log('e.target: ',e.target); //이벤트가 걸려있는 요소 input text
+            console.log('e.target.value : ',e.target.value); //요소의 값, 입력값
+            //value = input태그의 입력값 속성
 
+        })
+
+        //scroll
+        let container = document.querySelector('.container');
+        //scroll이 없을 때는 실행이 되지 않는다
+        container.addEventListener('scroll', function(e){
+            console.log('container에 scroll이벤트 발생!!');
+        })
+        //container 대신 window에 드림(window는 기본적으로 있음)
+        window.addEventListener('scroll', function(e){
+            console.log('window에 scroll이벤트 발생!!');
+        })
+
+        //onclick: on~이벤트 이름 같은게 대부분인듯
     </script>
 </body>
 </html>

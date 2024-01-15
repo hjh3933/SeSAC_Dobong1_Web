@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- cdn을 복사 붙여넣기 해서 jQuery사용가능(jQuery3.x minified복붙함) -->
+    <title>jQuery1</title>
+    <script>
+        function setValue() {
+            //input 태그의 value값을 설정
+            $('input').val('setting');
+        }
+
+        function getValue() {
+            //input태그의 value값을 가져오기
+            alert($('input').val());
+        }
+
+        function changeStyle() {
+            $('span').css('font-size', '28px');
+            $('span').css('color', 'skyblue');
+        }
+
+        function changeAttribute() {
+            $('input').attr('placeholder', 'name');
+            //setAtrribute('placeholder', 'name')과 동일
+        }
+
+        function changeText() {
+            $('span').text('jQueryText');
+            //innerText와 동일하게 동작
+        }
+        function changeHtml() {
+            $('p').html('<h3>jQuery HTML</h3>');
+            //innerHTML과 동일하게 동작
+            //Q. html로 ul태그 내부에li를 넣는 그런것도 되나?
+        }
+    </script>
+</head>
+<body>
+    <input type="text">
+    <button onclick="setValue()">setValue</button>
+    <button onclick="getValue()">getValue</button>
+    <br>
+    <span>안녕</span>
+    <button onclick="changeStyle()">changeStyle</button>
+
+    <button onclick="changeAttribute()">changeAttribute</button>
+
+    <p>p태그</p>
+    <button onclick="changeText()">changeText</button>
+    <button onclick="changeHtml()">changeHtml</button>
+</body>
+</html>

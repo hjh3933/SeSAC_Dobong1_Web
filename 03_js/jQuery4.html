@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <title>jQuery4</title>
+</head>
+<body>
+    <div class="container">
+        <input type="text">
+        <button>버튼</button>
+    </div>
+
+    <script>
+        //ready: 돔 트리 생성이 완료된 후 실행
+        $(document).ready(function(){
+            $('.container').append('<h2>안녕 ready</h2>')
+        })
+        //이런 방식으로도 가능
+        $(function(){
+            $('.container').append('<h2>안녕 ready2</h2>')
+        })
+
+        //click
+        $('button').click(function(){
+            console.log($(this).text());    //this의 text값인 버튼 반환한다
+            alert('클릭!');
+        })
+        //이렇게도 가능
+        $('button').on('click', function() {
+            alert('클릭2!');
+        })
+
+        //mouse over
+        $('button').mouseover(function(){
+            alert('mouseover');
+        })
+
+        //keydown
+        $('input').keydown(function(e){
+            console.log('e: ', e);
+            console.log('e.target: ', e.target);
+            console.log('e.key: ', e.key);
+
+            console.log('this: ',this);
+
+            //키보드의 enter키 입력시 창을 띄운다
+            if(e.key == 'Enter') {
+                alert('Enter입력!')
+            }
+        })
+
+    </script>
+</body>
+</html>

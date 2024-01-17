@@ -1,0 +1,40 @@
+.container {
+
+}
+table {
+    padding: 0;
+    margin: 0;
+    border-spacing: 0;
+}
+th {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+td {
+    width: 150px;
+    height: 80px;
+    text-align: center;
+    /* border: 1px solid black; */
+    padding: 0;
+    margin: 0;
+}
+tr td:nth-child(1) {
+    color: red;
+}
+tr td:nth-child(7) {
+    color: blue;
+}
+th:nth-child(1) {
+    color: red;
+}
+th:nth-child(7) {
+    color: blue;
+}
+h2 {
+    color: black;
+}
+p {
+  text-align: center; 
+  background-color: lightblue;
+}

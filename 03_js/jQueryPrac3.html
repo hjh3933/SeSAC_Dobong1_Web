@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <title>jQueryPrac3</title>
+    <link rel="stylesheet" href="jQueryPrac3.css">
+</head>
+<body>
+    <div class="container">
+        <label for="day">날짜</label>
+        <!-- 이상한 값 입력을 막음 -->
+        <input type="text" id="day" disabled>
+        <br>
+        <label for="content">내용</label>
+        <input type="text" id="content">
+        <button class="btn">작성</button>
+
+        <!-- 달력 -->
+        <!-- th 1 tr 6 td 7 -->
+        <!-- 내용은 p태그 생성 후 작성하여 추가하는 방식으로 계획 -->
+        <table>
+            <tr>
+                <th colspan="7"><h2>2024년 1월</h2></th>
+            </tr>
+            <tr>
+                <th>日</th>
+                <th>月</th>
+                <th>火</th>
+                <th>水</th>
+                <th>木</th>
+                <th>金</th>
+                <th>土</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+                <td>24</td>
+                <td>25</td>
+                <td>26</td>
+                <td>27</td>
+            </tr>
+            <tr>
+                <td>28</td>
+                <td>29</td>
+                <td>30</td>
+                <td>31</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- js작성하기 -->
+    <script>
+        let td;
+        //칸 클릭시 text값 숫자를 받아오는 이벤트 작성
+        $('td').click(function(){
+            td = $(this);
+            //값을 잘 받아오는지 확인 잘받아옴
+            console.log($(this).text());
+
+            //값을 input 날짜 창에 추가함
+            $('#day').val($(this).text());
+        })     
+
+        $('.btn').click(function(){
+
+            //입력값이 없을 경우 경고창 표시
+            let check = $('#day').val();
+            let check2 = $('#content').val();
+            if(check == '') {
+                alert('날짜를 선택하세요')
+            } else if(check2 == '') {
+                alert('내용을 입력하세요')
+            } else {
+                //날짜값가져오는법
+                console.log($('#day').val());
+                //내용 가져옴
+                let content = $('#content').val();
+                console.log(content)    //잘나옴
+
+                //날짜값과 같은 text값을 가지는 td에 내용 입력
+                $(td).append(`<p>${content}</p>`);
+
+                //값 초기화
+                $('#day').val('');
+                $('#content').val('');
+            }
+
+        })
+        
+    </script>
+</body>
+</html>

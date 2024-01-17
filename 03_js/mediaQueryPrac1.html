@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mediaQueryPrac1</title>
+    <style>
+        .container {
+            display: flex;
+        }
+        .box {
+            width: 100px;
+            height: 100px;    
+            border-radius: 10%;
+            border: 3px solid gold;  
+        }
+
+        /* 700 초과일 때(최소) 이거 그냥 안적어도 됨*/
+        @media screen and (min-width: 701px) {
+            .box {
+                background-color: black;
+                margin-right: 10px; 
+            }
+        }
+        /* 700이하일 때 */
+        @media screen and (max-width: 700px) {
+            .container {
+                flex-direction: column;
+            }
+            .box {
+                background-color: skyblue;
+                margin-bottom: 10px;
+            }
+        }
+
+        /* 추가내용정리 */
+        .more-and-less {
+            width: 100px;
+            height: 100px;
+            border: 5px solid black;
+        }
+        /* ~부터 ~까지의 범위 작성 가능 */
+        /* screen 생략시 기본값이 screen으로 알아서 적용됨 */
+        /* @media (min-width: 300px) and (max-width: 600px) {
+            .more-and-less {
+                background-color: plum;
+            }
+        } */
+        /* 비교 연산자 사용 가능 위와 동일함*/
+        @media (300px<=width<=600px) {
+            .more-and-less {
+                background-color: plum;
+            }
+        }
+
+        /* ---------------------------- */
+        /* 가로 세로 모드 */
+        @media (orientation: landscape) {
+            /* 가로(기본) */
+            body {
+                background-color: pink;
+            }
+        }
+        @media (orientation: portrait) {
+            /* 세로 */
+            body {
+                background-color: gold;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 실습2번 -->
+    <!-- <div class="container">
+        <div id="box1" class="box"></div>
+        <div id="box2" class="box"></div>
+        <div id="box3" class="box"></div>
+    </div> -->
+
+    <!-- 추가 내용 정리 -->
+    <div class="more-and-less">more and less</div>
+</body>
+</html>

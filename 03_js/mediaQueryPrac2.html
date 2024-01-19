@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- icon가져오기 -->
+    <script src="https://kit.fontawesome.com/837ff3adc1.js" crossorigin="anonymous"></script>
+    <style>
+      :root {
+        --nav-height-lg: 100px;
+        --nav-height-sm: 60px;
+      }
+
+      body {
+        margin: 0;
+        height: 8000px;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      /* HEADER */
+      header {
+        width: 100%;
+        height: var(--nav-height-lg);
+        z-index: 100;
+        /* scroll이 생겨도 고정 */
+        position: fixed;
+      }
+
+      /* 768px 보다 클때의 header */
+      header .inner {
+        background-color: lightblue;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      /* LOGO */
+      header .inner .logo {
+        color: white;
+        font-size: 3rem;
+        line-height: var(--nav-height-lg);
+        /* width: 30%; */
+        text-align: center;
+        /* 부모 relative 생략하면 바디 기준이 된다 */
+        position: absolute;
+        left: 20%;
+      }
+      header .inner .menu {
+        /* width: 70%; */
+        text-align: center;
+        display: flex;
+        justify-content: center;
+      }
+
+      header .inner .menu li {
+        line-height: var(--nav-height-lg);
+        padding-right: 30px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      /* 미디어 쿼리 작성 768px 이하일 때  */
+      @media screen and (max-width: 768px) {
+        header .inner {
+            align-items: center;
+            height: var(--nav-height-sm);
+            /* 기본으로 돌려주는 것(아주 중요!) */
+            display: block;
+        }
+        header .inner .logo {
+            line-height: var(--nav-height-sm);
+            font-size: 2rem;
+            /* 중앙 정렬 */
+            /* position: absolute;
+            right: calc(50% - 1rem); */
+            position: static;
+            text-align: center;
+        }
+        header .inner .menu {
+            flex-direction: column;
+            /* top: var(--nav-height-sm);
+            position: relative; */
+        }
+        header .inner .menu li {
+            line-height: var(--nav-height-sm);
+            padding-right: 0px;
+            background-color: rgb(238, 250, 255);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+        <div class="logo">
+          <i class="fa-solid fa-igloo"></i>
+        </div>
+        <ul class="menu">
+          <li>메뉴1</li>
+          <li>메뉴2</li>
+          <li>메뉴3</li>
+          <li>메뉴4</li>
+        </ul>
+      </div>
+    </header>
+  </body>
+</html>

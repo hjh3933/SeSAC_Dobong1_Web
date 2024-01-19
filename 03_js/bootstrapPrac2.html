@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- js cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <!-- icon cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>bootstrapPrac2</title>
+</head>
+<style>
+    .card_box {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+    .card {
+        margin-right: 20px;
+    }
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="bootstrapPrac1.html">HOME</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="https://velog.io/@hjh3933/posts"
+                            target="_blank">MyVelog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bootstrapPrac2.html">Content</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Site
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="https://www.naver.com/" target="_blank">naver</a></li>
+                            <li><a class="dropdown-item" href="https://www.google.com/" target="_blank">google</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="https://velog.io/" target="_blank">velog</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li> -->
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    이방인 L'Étranger
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>오늘, 엄마가 죽었다. 아니 어쩌면 어제, 모르겠다.</strong> 프랑스 치하의 북아프리카 알제[1]에서 평범한 직장인으로 살던 프랑스인
+                    뫼르소(Meursault)라는 남자는 양로원에 보낸 어머니가 세상을 떠나 장례식장을 가게 된다. 남자는 슬픔 같은 별다른 감정의 변화를 드러내지 않는다.[2] 장례 때 어머니의
+                    시신 주변에서 담배를 피우고 수위가 주는 커피를 마시고, 장례를 치른다. 그러면서 어머니가 양로원에서 새로 약혼자를 사귀었음을 알게된다. 다음 날 마리와 이야기하며 희극 영화를
+                    보며 시간을 보냈고 뫼르소의 집에 가서 같이 잔다. 다음 날에는 이웃인 살라마노 영감을 만난다. 그 영감은 같은 층에 사는 이웃이고, 그의 옆에는 그가 늘 구박하는 개가 항상 함께
+                    있다. 그리고 다른 이웃집 사람 레이몽이 저녁에 초대해서는 자기와 친구가 되자고 한다. 이 레이몽은 평판이 나쁘다. 본인 말로 자신은 창고업자라고 하지만 사람들은 그를 포주라고
+                    한다. 그리곤 레이몽은 뫼르소에게 자기를 도와달라고 부탁하는데, 도와달라는 일인즉슨 레이몽에게서 돈만 뜯어가고 자기를 성의 없이 대하는 여친을 좀 두들겨 패려고 하니 자기 여친을
+                    꼬드겨서 유인할 수 있는 편지를 써 달라는 것. 뫼르소는 '그를 돕지 않을 이유가 없다'라고 생각해 그를 돕게 된다.
+                    사건이 있고 며칠 후인 일요일에 레이몽은 뫼르소의 일터로 전화를 걸어 뫼르소와 마리를 해변가로 초대한다. 사적인 일로 전화가 왔으니 사장이 싫어할 것이라 생각했지만 사장은 화를
+                    내는 대신 뫼르소에게 파리에 사업소를 차릴 계획인데 그곳에서 일 할 생각이 있는지를 물어보지만, 꽤 좋은 기회임에도 뫼르소는 무미건조하게 대답하여 사장을 실망시킨다.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    고도를 기다리며 En attendant Godot
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    〈고도를 기다리며〉의 줄거리는 한 단어로 설명할 수 있는데, 바로 '기다림'이다. 이 작품은 희곡의 거의 모든 관습적인 기대를 깨버린다. 〈고도를 기다리며〉에서는 아무것도 일어나지
+                    않는다. 우스꽝스러운 인물들이 등장해 이해할 수 없는 허튼소리를 내뱉는 것이 전부이다. 심지어 두 주인공끼리 나누는 대화조차 제대로 이루어지지 않는다. 한쪽에서 밥은 먹었냐고
+                    물어보면 다른 쪽은 난 술이 싫다고 동문서답하는 식이다.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    변신 Die Verwandlung
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>어느 날 아침 그레고르 잠자가 편치 않은 꿈에서 깨어났을 때 그는 자신이 침대 속에서 한 마리의 엄청나게 큰 갑충으로 변해 있다는 걸 깨달았다.</strong>
+                    세일즈맨 그레고르 잠자는 어느 날 아침 눈을 뜨자 자신의 몸이 이상하게 변해 있는 것을 발견한다. 자신의 몸이 어느 사이에 무수한 다리를 지닌 한 마리 커다란 벌레로 바뀌어 있었던
+                    것이다. '이게 어떻게 된 일일까' 하고 생각해 보았으나, 분명히 꿈은 아니었다. 그가 출근하지 않았기 때문에 사정을 알고자 찾아온 가게 지배인은 그 이상스러운 모습을 보고 놀라
+                    도망가고, 어머니는 졸도하고, 아버지는 방안으로 쫓아 버리고 문을 닫았다. 가족들을 끔찍이 사랑했던 그레고르였으나 이제는 가족들한테 미움을 받고, 아버지가 던진 사과에 등을 맞아
+                    그 상처 때문에 식욕도 없어지고 말았다. 그러나 누이동생이 켜는 바이올린 소리에 끌려 옆 방으로 기어갔다. 그 결과 이상스러운 그의 존재가 하숙인에게 알려져 그는 방안에 갇혀야만
+                    했고, 식사는 누이동생이 날라다 주게 되었다.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card_box">
+        <div class="card" style="width: 18rem;">
+            <img src="./img/card1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">이방인</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a href="#" class="btn btn-primary">Go to Buy</a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img src="./img/card2.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">고도를 기다리며</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a href="#" class="btn btn-primary">Go to Buy</a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img src="./img/card3.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">변신</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a href="#" class="btn btn-primary">Go to Buy</a>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

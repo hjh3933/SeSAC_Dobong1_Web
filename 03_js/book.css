@@ -1,0 +1,14 @@
+/* 배경만 투명하게 하기 */
+body::before {
+    content: "";
+    background-image: url('./img/book.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    position: absolute;
+}

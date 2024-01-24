@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 변수를 head로 넘길 수 있다 -->
+    <%- include('./includes/head', {title: 'HOME'}) %>
+  </head>
+  <body>
+    <%- include('./includes/header') %>
+    <h1>안녕하세요 ejs입니다</h1>
+    <!-- 폴더 경로 이름을 변경해버림 ../public -> /static -->
+    <!-- js, css등을 링크로 가져올 때도 static으로 접근해서 사용한다 -->
+    <img src="/static/pooh.png" alt="pooh" width="100px" />
+
+    <h3>for문 사용해보기</h3>
+    <% for (let i =1; i<=5; i++) {%>
+    <p>안녕하세요</p>
+    <!-- 번호값이 변하는 이미지 반복하기 -->
+    <img src="/static/pooh<%=i%>.png" alt="pooh<%=i%>" width="100px" />
+    <% } %>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<header>
+  <ul>
+    <!-- a태그의 경로를 8080 뒤에오는 라우팅 경로와 동일하게 설정 -->
+    <li><a href="/login">로그인</a></li>
+    <li><a href="/register">회원가입</a></li>
+    <li><a href="/">홈으로</a></li>
+  </ul>
+
+  <% if(isLogin) {%>
+  <div>안녕하세요, <%=userInfo.name %>님</div>
+  <p><%=userInfo.msg %></p>
+  <% } else {%>
+  <div>로그인을 해주세요</div>
+  <% } %>
+</header>

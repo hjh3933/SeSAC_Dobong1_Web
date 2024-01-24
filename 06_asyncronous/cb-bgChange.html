@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>callback</title>
+    <style>
+      body {
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>배경색이 1초에 한번씩 변경됩니다.</h1>
+    <!-- red, orange, yellow, green, blue -->
+    <script>
+      // setTimeout(() => {
+      //   document.body.style.backgroundColor = "red";
+      //   //callback
+      //   setTimeout(() => {
+      //     document.body.style.backgroundColor = "orange";
+      //     setTimeout(() => {
+      //       document.body.style.backgroundColor = "yellow";
+      //       setTimeout(() => {
+      //         document.body.style.backgroundColor = "green";
+      //         setTimeout(() => {
+      //           document.body.style.backgroundColor = "blue";
+      //         }, 1000);
+      //       }, 1000);
+      //     }, 1000);
+      //   }, 1000);
+      // }, 1000);
+
+      //promise로 해보기
+      function colorChange(color) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            document.body.style.backgroundColor = `${color}`;
+            resolve("성공");
+          }, 1000);
+        });
+      }
+
+      //호출
+      colorChange("red")
+        .then(() => {
+          return colorChange("orange");
+        })
+        .then(() => {
+          return colorChange("yellow");
+        })
+        .then(() => {
+          return colorChange("green");
+        })
+        .then(() => {
+          return colorChange("blue");
+        });
+
+      //async로 해보기
+      async function execute() {
+        await colorChange("red");
+        await colorChange("orange");
+        await colorChange("yellow");
+        await colorChange("green");
+        await colorChange("blue");
+      }
+      execute();
+    </script>
+  </body>
+</html>

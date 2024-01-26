@@ -1,83 +1,79 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form구성태그</title>
-</head>
-<body>
+  </head>
+  <body>
     <form>
-        <label>
-            id: <input type="text" maxlength="15" placeholder="id를 입력해주세요"/>
-        </label>
-        <br/>
-        <label for="pw">
-            pw: 
-        </label>
-        <input type="password" maxlength="15" id="pw"/>
-        <br/>
-        <!-- 제출시 email주소인지 유효성 검사를 해줌@ -->
-        email<input type="email" value="allie">
-        <br>
-        <!-- 클릭시 특정 동작 가능 -->
-        <input type="button" value="login">
-        <!-- 새로고침이 된다, 제출을 위한 버튼 -->
-        <input type="submit" value="로그인">
-        <!-- input type이 아닌 버튼 타입이 submit임, 둘이 같은 거-->
-        <button><span style="color: blue;">로그</span>인</button>
-    
-        <!-- type -->
-        <input type="color">
-        <input type="file">
-        <input type="number">
-        <input type="date">
-        <input type="range">
-        <!-- 여러줄의 텍스트 가능 cols, rows로 글자수 조절-->
-        <textarea name="" id="" cols="30" rows="10"></textarea>
-        <hr/>
-        <!-- radio, checkbox -->
-        <h5>다음중 input의 타입이 아닌것은?(모두 고르시오)</h5>
-        <label>
-            <input type="checkbox" name="input">alt
-        </label>
-        <label>
-            <input type="checkbox" name="input">text
-        </label>
-        <label>
-            <input type="checkbox" name="input" checked>img
-        </label>
-        <label>
-            <input type="checkbox" name="input">click
-        </label>
-        <label>
-            <input type="checkbox" name="input">date
-        </label>
+      <label>
+        id: <input type="text" maxlength="15" placeholder="id를 입력해주세요" />
+      </label>
+      <br />
+      <label for="pw"> pw: </label>
+      <input type="password" maxlength="15" id="pw" />
+      <br />
+      <!-- 제출시 email주소인지 유효성 검사를 해줌@ -->
+      email<input type="email" value="allie" />
+      <br />
+      <!-- 클릭시 특정 동작 가능 -->
+      <input type="button" value="login" />
+      <!-- 새로고침이 된다, 제출을 위한 버튼 -->
+      <input type="submit" value="로그인" />
+      <!-- input type이 아닌 버튼 타입이 submit임, 둘이 같은 거-->
+      <button><span style="color: blue">로그</span>인</button>
 
-        <h5>다음중 img태그의 속성인 것은?</h5>
-        <!-- name을 동일하게줘야 중 1개만 선택된다(하나의 그룹으로 맞추는 것) -->
-        <!-- id와 label for를 맞춰주어야한다 -->
-        <!-- checked 속성으로 기본 선택 가능하게 할 수 있다 -->
-        <input type="radio" name="img" id="alt" checked><label for="alt">alt</label>
-        <input type="radio" name="img" id="bread"><label for="bread">bread</label>
-        <input type="radio" name="img" id="href"><label for="href">href</label>
-        <input type="radio" name="img" id="mouse"><label for="mouse">mouse</label>
-        <input type="radio" name="img" id="dragon" disabled><label for="dragon">dragon</label>
-        
-        <br/>
-        <!-- select box -->
-        <select>
-            <!-- optgroup 옵션 그룹화 -->
-            <optgroup label="빨간꽃">
-                <option value="장미">장미</option>
-                <option value="동백꽃">동백꽃</option>
-                <!-- disables 선택불가 속성 input속성에 다 사용가능 -->
-                <option value="튤립" disabled>튤립</option>
-            </optgroup>
-            <optgroup label="하얀꽃">
-                <option value="벚꽃">벚꽃</option>
-                <option value="매화">매화</option>
-            </optgroup>
-        </select>
+      <!-- type -->
+      <input type="color" />
+      <input type="file" />
+      <input type="number" />
+      <input type="date" />
+      <input type="range" />
+      <!-- 여러줄의 텍스트 가능 cols, rows로 글자수 조절-->
+      <textarea name="" id="" cols="30" rows="10"></textarea>
+      <hr />
+      <!-- radio, checkbox -->
+      <h5>다음중 input의 타입이 아닌것은?(모두 고르시오)</h5>
+      <label> <input type="checkbox" name="input" />alt </label>
+      <label> <input type="checkbox" name="input" />text </label>
+      <label> <input type="checkbox" name="input" checked />img </label>
+      <label> <input type="checkbox" name="input" />click </label>
+      <label> <input type="checkbox" name="input" />date </label>
+
+      <h5>다음중 img태그의 속성인 것은?</h5>
+      <!-- name을 동일하게줘야 중 1개만 선택된다(하나의 그룹으로 맞추는 것) -->
+      <!-- id와 label for를 맞춰주어야한다 -->
+      <!-- checked 속성으로 기본 선택 가능하게 할 수 있다 -->
+      <input type="radio" name="img" id="alt" checked /><label for="alt"
+        >alt</label
+      >
+      <input type="radio" name="img" id="bread" /><label for="bread"
+        >bread</label
+      >
+      <input type="radio" name="img" id="href" /><label for="href">href</label>
+      <input type="radio" name="img" id="mouse" /><label for="mouse"
+        >mouse</label
+      >
+      <input type="radio" name="img" id="dragon" disabled /><label for="dragon"
+        >dragon</label
+      >
+
+      <br />
+      <!-- select box -->
+      <select>
+        <!-- optgroup 옵션 그룹화 -->
+        <optgroup label="빨간꽃">
+          <option value="장미">장미</option>
+          <option value="동백꽃">동백꽃</option>
+          <!-- disables 선택불가 속성 input속성에 다 사용가능 -->
+          <option value="튤립" disabled>튤립</option>
+        </optgroup>
+        <optgroup label="하얀꽃">
+          <option value="벚꽃">벚꽃</option>
+          <option value="매화">매화</option>
+        </optgroup>
+      </select>
     </form>
-</body>
+  </body>
 </html>

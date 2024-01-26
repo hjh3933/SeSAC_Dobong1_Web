@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연습문제 result페이지</title>
+  </head>
+  <style>
+    span {
+      /* color: coral; */
+      font-weight: bold;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      border: 1px solid #bbb;
+      box-shadow: 0px 0px 5px #c8c8c8;
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      border-radius: 10px;
+    }
+  </style>
+  <body>
+    <h1>결과 확인하기</h1>
+    <h3><span><%=result.name %></span>님 환영합니다.</h3>
+    <!-- <p>이것은 <span><%#=title %>로 보내진 정보</span></p> -->
+
+    <ul>
+      <li>성별: <%=result.gender %></li>
+      <li>
+        생년월일: <%=result.year %>년 <%=result.month %>월 <%=result.day %>일
+      </li>
+      <li>관심사: <%=result.hobby %></li>
+      <% if(title==='POST') {%>
+      <li>좋아하는 색상값: <span class="color"><%=result.color %></span></li>
+      <li>좋아하는 숫자: <%=result.number %></li>
+      <li>하고싶은 말: <%=result.longtxt %></li>
+      <% } %>
+    </ul>
+
+    <!-- practice로 이동할수 있게 -->
+    <div>
+      <a href="/prac1">실습1GET</a>
+      <a href="/prac2">실습2POST</a>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentedLoaded", function (e) {
+        let color1 = document.querySelector(".color");
+        color1.style.color = "<%=result.color %>";
+      });
+    </script>
+  </body>
+</html>

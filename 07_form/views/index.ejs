@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form배우기</title>
+  </head>
+  <body>
+    <h2>get요청</h2>
+    <!-- <fieldset>
+      <legend>로그인</legend>
+    </fieldset> -->
+    <form action="/getForm" method="get">
+      <label for="">
+        id:
+        <input type="text" name="id" required />
+      </label>
+      <br />
+      <!-- name이 key값인 배열 형태로 정보가 들어오기 때문에 name매우 중요 -->
+      <label for="">
+        email:
+        <input type="email" name="email" required />
+      </label>
+      <br />
+      <label for="">
+        password:
+        <input type="password" name="pw" required />
+      </label>
+      <br />
+      <button type="button">제출(button type)</button>
+      <button>제출(submit type)</button>
+    </form>
+
+    <h2>post요청</h2>
+    <form action="/postForm" method="post">
+      <!-- 정규식 pattern -->
+      <!-- title: 정규식 불만족할때 사용 -->
+      <fieldset>
+        <legend>로그인</legend>
+        <label for="id">
+          ID
+          <input
+            type="text"
+            name="id"
+            id="id"
+            pattern="^([a-zA-Z0-9가-힣]){4,10}$"
+            title="아이디는 영어대소문자,숫자, 한글로 이루어진 4자이상 10자 이하여야합니다."
+            placeholder="아이디를 입력해주세요"
+            required
+          />
+        </label>
+        <br />
+        <label for="pw">
+          PW
+          <input
+            type="password"
+            id="pw"
+            name="pw"
+            pattern="^([a-z0-9]){8,12}$"
+            placeholder="비밀번호를 입력해주세요"
+            required
+          />
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>체크박스</legend>
+        <!-- radio나 checkbox는 value의 값이 전달되니까 꼭 적어주세요 -->
+        <!-- 여러개 선택시 배열로 전달됩니다 -->
+        <label
+          ><input
+            type="checkbox"
+            name="agree"
+            value="마케팅동의"
+          />마케팅동의</label
+        >
+        <label
+          ><input
+            type="checkbox"
+            name="agree"
+            value="개인정보수집동의"
+          />개인정보수집동의</label
+        >
+        <label
+          ><input
+            type="checkbox"
+            name="agree"
+            value="이용약관동의"
+          />이용약관동의</label
+        >
+      </fieldset>
+      <br />
+      <input type="submit" value="제출" />
+    </form>
+
+    <h2>Validation</h2>
+    <form
+      action="/js-form-check"
+      method="post"
+      name="validationForm"
+      target="_blank"
+      onsubmit="return checkForm(this)"
+    >
+      <input
+        type="text"
+        name="id"
+        minlength="1"
+        placeholder="ID를 입력해주세요"
+        title="최소한글자 이상을 입력해주세요"
+        id="input"
+      />
+      <br />
+      <div>우편물 수령장소</div>
+      <!-- 둘 중 하나 이상 선택해야 넘어가도록 만들어보기 -->
+      <!-- radio는 하나만 required 설정해도 잘되는데 checkbox는 안된다 -->
+      <label> <input type="checkbox" name="mail" value="회사" />회사 </label>
+      <label> <input type="checkbox" name="mail" value="자택" />자택 </label>
+      <br />
+      <button>제출</button>
+    </form>
+
+    <!-- practice로 이동할수 있게 -->
+    <hr />
+    <div>
+      <a href="/prac1">실습1GET</a>
+      <a href="/prac2">실습2POST</a>
+    </div>
+    <script>
+      //form의 onsubmit이벤트 발생 시 작동하는 함수를 작성합니다!!
+      function checkForm(form) {
+        console.log(form);
+        // const form = document.forms("validationForm"); this를 이용하지 않는 방법
+        // const form = document.forms("네임속성");
+
+        //form의 input요소들의 name, id로 접근가능
+        console.log(form.input); //id참조
+        console.log(form.id); //name참조
+
+        // input text 창에 아무것도 쓰지 않았다면
+        if (form.id.value === "") {
+          alert("id를 입력해주세요!");
+          //return false를 해줘야 실제로 form 제출이 안된다(submit 이벤트 실행안됨)
+          return false;
+        }
+        //checkbox
+        if (form.mail[0].checked === false && form.mail[1].checked === false) {
+          //아무것도 선택되지 않는 다면
+          alert("우편물 수령장소를 선택해주세요");
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>

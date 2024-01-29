@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>동적폼 전송</title>
+    <style>
+      body {
+        background-color: pink;
+      }
+      .result {
+        font-weight: 700;
+        font-size: 1.5rem;
+      }
+    </style>
+    <!-- jquery CDN -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <!-- axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h1>동적폼 연습하기</h1>
+    <form name="register">
+      <!-- 이름, 성별 입력 폼 -->
+      <input
+        type="text"
+        name="name"
+        required
+        placeholder="이름을 입력해주세요"
+      />
+
+      <br />
+      성별
+      <input type="radio" name="gender" value="남자" id="male" required />
+      <label for="male">남성</label>
+      <input type="radio" name="gender" value="여자" id="female" required />
+      <label for="female">여성</label>
+      <br />
+      <br />
+
+      <button type="button" onclick="ajaxGet()">Ajax get제출</button>
+      <button type="button" onclick="ajaxPost()">Ajax post제출</button>
+      <br />
+      <button type="button" onclick="axiosGet()">Axios get제출</button>
+      <button type="button" onclick="axiosPost()">Axios post제출</button>
+      <br />
+      <button type="button" onclick="fetchGet()">Fetch get제출</button>
+      <button type="button" onclick="fetchPost()">Fetch post제출</button>
+      <br />
+
+      <!-- 결과물 보여줄곳 -->
+      <div class="result"></div>
+
+      <a href="/openApi">API사용해보기</a>
+    </form>
+    <script>
+      const resultBox = document.querySelector(".result");
+      function ajaxGet() {
+        const form = document.forms["register"];
+
+        // console.log(form);
+        // console.log(form.name);
+        // console.log(form.gender); //배열 형태
+        // console.log(form.male);
+
+        const data = {
+          name: form.name.value,
+          gender: form.gender.value,
+        };
+
+        //submit이 아니라 비동기적 데이터 전달
+        $.ajax({
+          type: "get",
+          url: "/ajax",
+          data: data,
+          success: function (res) {
+            //요청하고 서버에서 받아온 데이터
+            console.log(res);
+            resultBox.textContent = `GET ajax 요청 완료! ${res.name}님의 성별은 ${res.gender}입니다.`;
+            resultBox.style.color = "red";
+          },
+          error: function (err) {
+            console.log("ajax 실패");
+          },
+        });
+      }
+      function ajaxPost() {
+        const form = document.forms["register"];
+        const data = {
+          name: form.name.value,
+          gender: form.gender.value,
+        };
+
+        $.ajax({
+          type: "post",
+          url: "/ajax",
+          data: data,
+          success: function (res) {
+            console.log(res);
+            resultBox.textContent = `POST ajax 요청 완료! ${res.name}님의 성별은 ${res.gender}입니다.`;
+            resultBox.style.color = "yellow";
+          },
+        });
+      }
+
+      //axios
+      async function axiosGet() {
+        const form = document.forms["register"];
+        const data = {
+          name: form.name.value,
+          gender: form.gender.value,
+        };
+
+        //checkValidity() submit이 아니라서 required가 작동안하는 상황 추가 유효성 검사 작업 필요
+        /*
+        required 표시된 부분이 있으면 기입이 됐는지 안됐는지 검사
+        - required 가 있는 항목에 대해서
+         - 기입했다면 true, 기입하지 않았다면 false 반환
+        - required가 없는 항목에 대해선 무조건 true 반환
+        - 기본제공함수
+        */
+        console.log(form.name.checkValidity());
+        //하나만 선택해도 radio는 true가 됩니다
+        console.log(form.gender[0].checkValidity());
+        console.log(form.gender[1].checkValidity());
+        if (!form.name.checkValidity()) {
+          resultBox.textContent = "이름을 입력해주세요";
+          //   resultBox.textContent = form.name.validationMessage; //기본제공 문자열, 이 입력란을 작성하세요
+        } else if (!form.gender[1].checkValidity()) {
+          resultBox.textContent = "성별을 선택해주세요";
+          //   resultBox.textContent = form.gender[0].validationMessage; //다음 옵션중 하나를 선택하세요
+        } else {
+          //둘 다 작성되어 있을 경우 데이터를 보내도록 함 axios요청
+          //   axios({
+          //     url: "/axios",
+          //     method: "get",
+          //     params: data, //get일때는 params로 데이터 전달
+          //   }).then(function (res) {
+          //     console.log(res);
+          //     console.log(res.data); //data라는 key가 이미 있어요(axios가 만들어둔 이름), res.send가 준 값 보통 사용하는 데이터
+          //     console.log(res.status); //200(okay), 404 등의 상태코드
+          //     console.log(res.headers);
+
+          //     //구조분해할당으로 쉽게 접근하기
+          //     const { name, gender } = res.data; //data 객체로 저장되어 있음
+
+          //     resultBox.innerText = `GET axios 요청 완료! ${name}님의 성별은 ${gender}입니다.`;
+          //     resultBox.style.color = "green";
+          //   });
+          try {
+            const response = await axios({
+              //params안쓰고 url처리로도 가능
+              url: `/axios?name=${data.name}&gender=${data.gender}`,
+              method: "get",
+            });
+            console.log(response.data);
+            const { name, gender } = response.data;
+            resultBox.innerText = `GET axios 요청 완료! ${name}님의 성별은 ${gender}입니다.`;
+            resultBox.style.color = "green";
+          } catch (err) {
+            console.log("err!!", err);
+          }
+        }
+      }
+      async function axiosPost() {
+        const form = document.forms["register"];
+        const data = {
+          name: form.name.value,
+          gender: form.gender.value,
+        };
+
+        try {
+          //데이터 보내기는 시간이 걸려서 동기설정중
+          const response = await axios({
+            method: "post",
+            url: "/axios",
+            data: data,
+          });
+          console.log(response.data);
+          const { name: 이름, gender: 성별 } = response.data;
+          resultBox.innerText = `POST axios 요청 완료! ${이름}님의 성별은 ${성별}입니다.`;
+          resultBox.style.color = "gray";
+        } catch (err) {
+          console.log(err);
+        }
+      }
+
+      //fetch
+      function fetchGet() {
+        const form = document.forms["register"];
+        const data = {
+          name: form.name.value,
+          gender: form.gender.value,
+        };
+
+        // fetch(url, {요청과 관련된 데이터})
+        // fetch(`/fetch?name=${data.name}&gender=${data.gender}`, {
+        //   method: "get",
+        //   //get일 때는 데이터 무조건!!!  + '?쿼리'로 보내야한다
+        // })
+        //get이 기본값이라 method 생략가능
+        fetch(`/fetch?name=${data.name}&gender=${data.gender}`, {})
+          .then(function (res) {
+            //response: http응답 전체를 나타내는 객체
+            //본문 콘텐츠를 추출하기 위해서 사용하는 메서드: json(), text()
+            console.log(res); //브라우저 콘솔창보면 응답 전체 나와있음
+            return res.json(); //return필수 그래야 정보 then으로 넘어감
+          })
+          .then(function (result) {
+            console.log("**************");
+            console.log(result);
+            resultBox.style.color = "salmon";
+            resultBox.innerText = `GET fetch 요청 완료! ${result.name}님의 성별은 ${result.gender}입니다.`;
+          });
+      }
+      async function fetchPost() {
+        const form = document.forms["register"];
+        const data = {
+          name: form.name.value,
+          gender: form.gender.value,
+        };
+
+        try {
+          const res = await fetch("/fetch", {
+            method: "post",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            //data를 post요청으로 보낼때는
+            //object -> JSON으로 변경해서 보냄
+            body: JSON.stringify(data),
+          });
+          console.log(res);
+
+          //await 두번써야함 위fetch랑 아래json
+          const result = await res.json();
+          console.log(result); //name, gender 잘나옴
+          resultBox.style.color = "skyblue";
+          resultBox.innerText = `POST fetch 요청 완료! ${result.name}님의 성별은 ${result.gender}입니다.`;
+        } catch (err) {
+          console.log("err!!", err);
+        }
+      }
+    </script>
+  </body>
+</html>

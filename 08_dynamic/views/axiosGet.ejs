@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GET으로 정보받기</title>
+    <!-- axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h1>실습 axios get 회원가입</h1>
+    <form action="/getPrac" method="get" name="axiosForm">
+      <label for="name">
+        이름
+        <input type="text" name="name" id="name" />
+      </label>
+      <fieldset>
+        <legend>성별</legend>
+        <label for="man">
+          <input type="radio" name="gender" value="남자" id="man" />
+          남자
+        </label>
+        <label for="woman">
+          <input type="radio" name="gender" value="여자" id="woman" />
+          여자
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>생년월일</legend>
+        <select name="year" id="year">
+          <!-- option은 value를 적지 않아도 전달이 되기는 한다고 한다 -->
+          <% for(let i=2010; i>=1990; i--) {%>
+          <option value="<%=i %>"><%=i %></option>
+          <% } %>
+        </select>
+        <span>년</span>
+        <select name="month" id="month">
+          <% for(let i=1; i<=12; i++) {%>
+          <option value="<%=i %>"><%=i %></option>
+          <% } %>
+        </select>
+        <span>월</span>
+        <select name="day" id="day">
+          <% for(let i=1; i<=31; i++) {%>
+          <option value="<%=i %>"><%=i %></option>
+          <% } %>
+        </select>
+        <span>일</span>
+      </fieldset>
+      <fieldset>
+        <legend>관심사</legend>
+        <!-- label 안에 적는거면 for 굳이 안적어도 된다 -->
+        <label for="trip">
+          <input type="checkbox" name="hobby" id="trip" value="여행" /> 여행
+        </label>
+        <label for="fashion">
+          <input type="checkbox" name="hobby" id="fashion" value="패션" /> 패션
+        </label>
+        <label for="food">
+          <input type="checkbox" name="hobby" id="food" value="음식" /> 음식
+        </label>
+      </fieldset>
+      <br />
+      <button type="button" onclick="axiosGET()">회원가입</button>
+    </form>
+
+    <script>
+      function axiosGET() {
+        //checkbox데이터가져오기
+        let hobby = document.querySelectorAll("input[type='checkbox']");
+        let checklist = [];
+        for (let i = 0; i < hobby.length; i++) {
+          if (hobby[i].checked) {
+            checklist[i] = hobby[i].value;
+          }
+        }
+        //form이랑 가져올 데이터 정의
+        const form = document.forms["axiosForm"];
+        const data = {
+          name: form.name.value,
+          gender: form.gender.value,
+          year: form.year.value,
+          month: form.month.value,
+          day: form.day.value,
+          hobby: checklist,
+        };
+
+        axios({
+          method: "get",
+          url: "/axiosGetPrac",
+          //잊지말고 params로 보내기
+          params: data,
+        }).then((res) => {
+          console.log(res);
+          console.log(res.data);
+
+          //분해할당
+          const { name, gender, year, month, day, hobby } = res.data;
+
+          //result페이지는 만들지 않아도 된다. 데이터 확인
+          let comment = `안녕하세요 ${name}님, 성별은 ${gender}, 생년월일은 ${year}년 ${month}월 ${day}일이시군요. 취미는 ${hobby}입니다`;
+          console.log(comment);
+        });
+      }
+    </script>
+  </body>
+</html>

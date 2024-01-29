@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>외부 API 사용</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+      ul {
+        display: flex;
+        justify-content: start;
+        flex-wrap: wrap;
+      }
+      ul p {
+        width: 200px;
+      }
+      ul img {
+        margin: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>간단 open API 사용</h1>
+
+    <h3>고양이 사진 바꾸기(fetch)</h3>
+    <img src="" alt="기본 이미지" id="img" />
+    <button type="button" onclick="changeCatImg()">고양이 사진 변경</button>
+
+    <h3>영화 정보 가져오기</h3>
+    <ul></ul>
+
+    <script>
+      function changeCatImg() {
+        //then이 두번
+        fetch("https://api.thecatapi.com/v1/images/search")
+          //중괄호 없으면 return키워드 없어도 return된다!!
+          .then((res) => res.json())
+          .then((result) => {
+            // console.log(result); //배열 형태로 온다 [0] 하나밖에 없음
+            // console.log(result[0].id);
+            // console.log(result[0].url);
+            // console.log(result[0].height);
+            // console.log(result[0].width);
+
+            const img = document.getElementById("img");
+            img.src = result[0].url;
+            img.alt = `${result[0].id}-cat`;
+            img.setAttribute("width", 400);
+          });
+      }
+
+      //http://www.omdbapi.com 영화 api
+      //api key: e736efb5
+      //사용법 http://www.omdbapi.com/?apikey=[yourkey]&s=love
+      //axios로 해보기
+
+      const word = "love";
+      axios({
+        method: "get",
+        url: "http://www.omdbapi.com/?apikey=e736efb5&s=" + word,
+      })
+        .then((res) => {
+          console.log(res.data); //console창으로 확인하고 접근할 방법 찾음
+          console.log(res.data.Search);
+          console.log(res.data.Search[0]);
+          // <div>
+          //     <img src="" alt="">
+          //     <p></p>
+          // </div>
+          const ul = document.querySelector("ul");
+          for (let movie of res.data.Search) {
+            const div = document.createElement("div");
+            const img = document.createElement("img");
+            const p = document.createElement("p");
+
+            img.src = movie.Poster;
+            img.alt = movie.imdbID;
+            p.innerText = movie.title;
+
+            console.log(div);
+            div.append(img, p);
+            ul.append(div);
+          }
+        })
+        .catch((err) => console.log(err));
+    </script>
+  </body>
+</html>

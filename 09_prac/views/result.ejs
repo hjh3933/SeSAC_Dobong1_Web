@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Result</title>
+    <link rel="stylesheet" href="../static/result.css" />
+  </head>
+  <body>
+    <div class="box">
+      <h3>Result</h3>
+      <p><span class="name1"><%=userInfo.name %></span>님 마이페이지</p>
+      <img src="<%=profile.path %>" alt="프로필사진" />
+      <div class="userInfo">
+        <p>아이디: <span class="id"><%=userInfo.id %></span></p>
+        <p>비밀번호: <span class="pw"><%=userInfo.pw %></span></p>
+        <p>이름: <span class="name2"><%=userInfo.name %></span></p>
+        <p>나이: <span class="age"><%=userInfo.age %></span></p>
+      </div>
+    </div>
+  </body>
+</html>

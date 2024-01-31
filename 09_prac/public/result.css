@@ -1,0 +1,20 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.name1 {
+  font-weight: bold;
+  color: skyblue;
+  font-size: 1.5rem;
+}
+img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 3px solid gray;
+}
+span {
+  font-weight: bold;
+}

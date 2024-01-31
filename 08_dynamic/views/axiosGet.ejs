@@ -64,14 +64,19 @@
       <button type="button" onclick="axiosGET()">회원가입</button>
     </form>
 
+    <div class="result"></div>
+    <a href="/axiosGet">실습문제1</a>
+    <a href="/axiosPost">실습문제2</a>
     <script>
+      const result = document.querySelector(".result");
+
       function axiosGET() {
         //checkbox데이터가져오기
         let hobby = document.querySelectorAll("input[type='checkbox']");
         let checklist = [];
-        for (let i = 0; i < hobby.length; i++) {
-          if (hobby[i].checked) {
-            checklist[i] = hobby[i].value;
+        for (let hob of hobby) {
+          if (hob.checked) {
+            checklist.push(hob.value);
           }
         }
         //form이랑 가져올 데이터 정의
@@ -92,15 +97,16 @@
           params: data,
         }).then((res) => {
           console.log(res);
-          console.log(res.data);
+          console.log(res.data); //내가 얻고싶은 데이터는 이거임
 
           //분해할당
           const { name, gender, year, month, day, hobby } = res.data;
 
           //result페이지는 만들지 않아도 된다. 데이터 확인
-          let comment = `안녕하세요 ${name}님, 성별은 ${gender}, 생년월일은 ${year}년 ${month}월 ${day}일이시군요. 취미는 ${hobby}입니다`;
+          let comment = `안녕하세요 ${name}님 성별은 ${gender}, 생년월일은 ${year}년 ${month}월 ${day}일이시군요. 취미는 ${hobby}입니다`;
           console.log(comment);
-        });
+          result.textContent = comment;
+        }); //catch를 쓸거면 이 뒤에 .catch((err)=>{})로 이어서 쓰면된다
       }
     </script>
   </body>

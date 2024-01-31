@@ -72,7 +72,10 @@ app.post("/axiosPostPrac", (req, res) => {
   } else {
     result = false;
   }
-  res.send(result);
+  res.send({
+    result: result,
+    info: req.body,
+  });
 });
 
 app.listen(PORT, () => {

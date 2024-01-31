@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index페이지</title>
+    <style>
+      .profile {
+        background-color: white;
+        border-radius: 50%;
+        box-shadow: 0 0 20px #0002;
+      }
+    </style>
+    <!-- axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h2>파일한개 업로드</h2>
+    <!-- 파일업로드를 하려면 enctype 설정이 필수입니다!! -->
+    <!-- multipart/form-data는 method가 post일 때만 사용가능합니다. -->
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <input type="file" name="userfile" />
+      <br />
+      <input type="text" name="title" placeholder="사진 제목을 입력해주세요" />
+      <br />
+      <br />
+      <button type="submit">업로드</button>
+    </form>
+
+    <h2>파일여러개 업로드(ver.01)</h2>
+    <p>
+      하나의 input에 여러개의 파일 업로드(multiple키워드 input에 사용해야함)
+    </p>
+    <form action="/uploads/array" method="post" enctype="multipart/form-data">
+      <input type="file" name="multifiles" multiple />
+      <br />
+      <input type="text" name="title" placeholder="사진 제목을 입력해주세요" />
+      <br />
+      <br />
+      <!-- app.js에서 single-> -->
+      <button type="submit">업로드</button>
+    </form>
+
+    <h2>파일여러개 업로드(ver.02)</h2>
+    <p>여러개의 input에 하나씩 파일 업로드</p>
+    <form action="/uploads/fields" method="post" enctype="multipart/form-data">
+      <input type="file" name="file1" />
+      <br />
+      <input type="text" name="title1" placeholder="사진 제목을 입력해주세요" />
+      <br />
+      <br />
+
+      <input type="file" name="file2" />
+      <br />
+      <input type="text" name="title2" placeholder="사진 제목을 입력해주세요" />
+      <br />
+      <br />
+
+      <input type="file" name="file3" />
+      <br />
+      <input type="text" name="title3" placeholder="사진 제목을 입력해주세요" />
+      <br />
+      <br />
+      <!-- app.js에서 single-> -->
+      <button type="submit">업로드</button>
+    </form>
+
+    <hr />
+    <h2>동적파일업로드</h2>
+    <!-- form 태그 없이 해봅니다 -->
+    <div class="dynamic">
+      <input type="file" id="dynamicFile" name="dynamicFile" />
+      <br />
+      <input
+        type="text"
+        id="dynamicTitle"
+        name="dynamicTitle"
+        placeholder="프로필설명"
+      />
+      <br />
+      <br />
+      <button type="button" onclick="fileUpload()">프로필업로드</button>
+      <button type="button" onclick="fileAndTextUpload()">
+        프로필업로드(with text)
+      </button>
+
+      <br />
+      <h3>결과화면</h3>
+      <img
+        src="/static/img/default.jpg"
+        alt="기본 프로필 이미지"
+        width="200"
+        height="200"
+        class="profile"
+      />
+      <div class="tit"></div>
+    </div>
+
+    <script>
+      function fileUpload() {
+        // console.log(dynamicTitle);
+        // console.log(dynamicFile);
+        //const 선언 안했지만 출력된다 id로 바로 접근가능
+        //그래도 명시적으로 써주는게 좋다
+        const file = document.getElementById("dynamicFile");
+        const img = document.querySelector(".profile");
+        const formData = new FormData();
+        //js에서 기본제공되는 FormData클래스를 사용해서 객체 생성, 이미지, pdf등의 파일을 페이지 전환없이
+        //비동기적으로 제출하고 싶을 때 임의로 form객체를 만들어서 사용합니다
+
+        console.log(file);
+        console.dir(file); //트리(객체)형태로 콘솔창에 나온다
+        console.log(file.files[0]); //배열로 파일정보가져옴
+
+        formData.append("dynamicFile", file.files[0]);
+        //form객체에 <input name="dynamicFile" value=file.files[0]>요소가 생성됨
+        //formData.append('name', value)
+
+        axios({
+          method: "post",
+          url: "/dynamicUpload",
+          data: formData,
+          //file보낼때는 header적어서 form에 적던 encodingtype적어줘야한다
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }).then((res) => {
+          console.log(res);
+          console.log(res.data); //파일과 관련된 정보가 있을 거임
+          console.log(res.data.path); //업로드된 이미지 정보 src에 들어갈 정보!
+          //img태그에 업로드한 사진 올리기
+          img.src = res.data.path;
+        });
+      }
+      //파일과 텍스트 업로드
+      function fileAndTextUpload() {
+        const formData = new FormData();
+        const file = document.getElementById("dynamicFile");
+        const title = document.getElementById("dynamicTitle");
+        const resultTitle = document.querySelector(".tit");
+        const img = document.querySelector(".profile");
+
+        formData.append("dynamicFile", file.files[0]);
+        formData.append("dynamicTitle", title.value);
+
+        axios({
+          method: "post",
+          url: "/dynamicUpload",
+          data: formData,
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }).then((res) => {
+          console.log(res.data);
+          console.log(res.data.title);
+          console.log(res.data.fileInfo);
+          console.log(res.data.fileInfo.path); //이미지의 src
+
+          img.src = res.data.fileInfo.path;
+          resultTitle.textContent = res.data.title.dynamicTitle;
+        });
+      }
+    </script>
+  </body>
+</html>

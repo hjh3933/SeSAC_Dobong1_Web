@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MAIN PAGE</title>
+    <!-- head include -->
+    <%-include('./include/head') %>
+  </head>
+  <body>
+    <!-- header include 확장자 생략 가능-->
+    <%-include('./include/header') %>
+    <h2>안녕하세요! <%=user %>의 블로그입니다!!</h2>
+    <ul>
+      <!-- app.js contentData [{}]배열 안의 객체형태 -->
+      <% for(let content of contentData) {%>
+      <li>
+        <!-- a 태그 => get요청 id별로 다르게 이동 -->
+        <a href="/content/<%=content.contentID %>"><%=content.title %></a>
+        <!-- ejs변수를 js로 넘길 때는 문자열 ''을 적어서 보내야함 -->
+        <button onclick="deleteContent('<%=content.contentID %>', this)">
+          삭제
+        </button>
+      </li>
+      <% } %>
+    </ul>
+    <script>
+      function deleteContent(contentID, btn) {
+        console.log(contentID);
+        if (confirm("정말 삭제하실건가요?")) {
+          //true -> 삭제 로직작성
+          axios({
+            method: "delete",
+            url: "/blog/delete?contentID=" + contentID, //query로 처리해보겠습니다
+          }).catch((err) => {
+            //데이터 받아서 할 작업 없으므로 then생략
+            console.error(err);
+          });
+
+          // console.log(btn) this로 전달된 버튼
+          // console.log(btn.parentNode.remove());
+          btn.parentNode.remove(); //이걸 안해도 삭제는 되지만 시간이 걸려서 클릭시 곧장 li태그를 삭제하는 코드를 추가한 것입니다
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content</title>
+    <!-- head include -->
+    <%-include('./include/head') %>
+    <style>
+      h1,
+      div {
+        text-align: center;
+      }
+      /* enter처리를 해주는 방법(아주 간단하군요!) */
+      p {
+        white-space: pre-line;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header include 확장자 생략 가능-->
+    <%-include('./include/header') %>
+
+    <h1><%=title %></h1>
+    <div>
+      <p><%=content %></p>
+      <% if(img) {%>
+      <img src="/<%=img %>" alt="<%=contentID %>번 글 이미지" width="300" />
+      <% } %>
+    </div>
+
+    <!-- 
+      /r CR
+      /n LF
+      /r/n CRLF
+     -->
+  </body>
+</html>

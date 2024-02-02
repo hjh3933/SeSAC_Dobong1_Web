@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Result</title>
-    <link rel="stylesheet" href="../static/result.css" />
+    <link rel="stylesheet" href="../static/css/result.css" />
   </head>
   <body>
     <div class="box">
       <h3>Result</h3>
       <p><span class="name1"><%=userInfo.name %></span>님 마이페이지</p>
-      <img src="<%=profile.path %>" alt="프로필사진" />
+      <!-- src앞에 /슬래시 꼭 붙여주세요(안붙여도 되는데 왜지?) -->
+      <img src="/<%=profile %>" alt="프로필사진" />
       <div class="userInfo">
         <p>아이디: <span class="id"><%=userInfo.id %></span></p>
         <p>비밀번호: <span class="pw"><%=userInfo.pw %></span></p>

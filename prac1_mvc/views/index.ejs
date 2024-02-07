@@ -59,6 +59,33 @@
             console.log("error:" + e);
           });
       }
+
+      function login2() {
+        const form = document.forms["loginForm"];
+        const data = {
+          id: form.id.value,
+          pw: form.pw.value,
+        };
+
+        axios({
+          method: "post",
+          url: "/login2",
+          data: data,
+        })
+          .then((res) => {
+            console.log(res.data);
+            if (res.data.result) {
+              txt.textContent = `${res.data.name}님 환영합니다`;
+              txt.style.color = "green";
+            } else {
+              txt.textContent = "아이디 또는 비밀번호를 잘못 입력했습니다";
+              txt.style.color = "red";
+            }
+          })
+          .catch((e) => {
+            console.log("error:" + e);
+          });
+      }
     </script>
   </body>
 </html>

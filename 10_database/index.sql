@@ -204,3 +204,52 @@ SELECT * FROM user;
 
 -- where, group by, having, order by, limit 등의 순서
 -- select * from table >> where >> group by >> having >> order by >> limit
+
+-- GROUP BY, HAVING(02/07)
+SHOW DATABASES;
+USE sesac;
+SHOW TABLES;
+-- IF EXISTS 존재할 경우 삭제
+DROP Table IF EXISTS user;
+CREATE TABLE user(
+    user_Id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(10) NOT NULL,
+    specialize ENUM('축구', '야구', '클라이밍', '배드민턴') NOT NULL,
+    gender ENUM('남', '여') NOT NULL,
+    career_year INT NOT NULL
+);
+DESC user;
+INSERT INTO user VALUES (NULL, '김판곤', '축구', '남', 40);
+INSERT INTO user VALUES(NULL, '손흥민', '축구', '남',15);
+INSERT INTO user VALUES(NULL, '김자인', '클라이밍', '여',10);
+INSERT INTO user VALUES(NULL, '김동우', '축구', '남',1);
+INSERT INTO user VALUES(NULL, '전유진', '배드민턴', '여',2);
+INSERT INTO user VALUES(NULL, '이대호', '야구', '남',24);
+INSERT INTO user VALUES(NULL, '안세영', '배드민턴', '여',11);
+INSERT INTO user VALUES(NULL, '배서연', '클라이밍', '여',3);
+INSERT INTO user VALUES(NULL, '황희찬', '축구', '남',9);
+INSERT INTO user VALUES(NULL, '지소연', '축구', '여',17);
+INSERT INTO user VALUES(NULL, '이정후', '야구', '남',11);
+INSERT INTO user VALUES(NULL, '김광현', '야구', '남',21);
+SELECT * FROM user;
+
+-- 집계함수
+SELECT COUNT(specialize) FROM user WHERE specialize = '축구';
+-- where 조건에 만족하는 튜플의 개수를 출력
+SELECT SUM(career_year) FROM user WHERE specialize = '축구';
+SELECT AVG(career_year) FROM user WHERE specialize = '축구';
+SELECT MIN(career_year) FROM user WHERE specialize = '축구';
+SELECT MAX(career_year) FROM user WHERE specialize = '축구';
+
+-- group by (같은 그룹끼리 묶어서 확인 가능)
+SELECT specialize FROM user GROUP BY specialize;
+SELECT specialize, COUNT(*) FROM user GROUP BY specialize;
+SELECT specialize, COUNT(*) FROM user WHERE gender = '여' 
+GROUP BY specialize HAVING COUNT(specialize) >= 2;
+-- where에는 집계함수를 사용할 수 없다, GROUP BY로 묶은 속성과 관련된 조건이 들어가야 한다.
+-- 각 분야의 여성 숫자를 세는데 HAVING 조건은 여성 중 2명 이상의 분야만 출력한다 
+
+/*
+순서
+select > from > where > group by > having > order by > limit
+*/

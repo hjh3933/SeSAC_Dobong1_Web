@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>visitors</title>
+    <!-- axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- custom js -->
+    <script defer src="/static/visitor.js"></script>
+  </head>
+  <body>
+    <h1>방명록 페이지</h1>
+    <form name="visitorForm">
+      <fieldset>
+        <legend>방명록 등록</legend>
+        <input type="text" name="name" placeholder="사용자 이름" />
+        <br />
+        <input type="text" name="comment" placeholder="간단 방명록 작성" />
+        <br />
+        <div id="btn-group">
+          <button type="button" onclick="createVisitor()">방명록 등록</button>
+        </div>
+      </fieldset>
+    </form>
+    <br />
+    <br />
+    <table border="1" cellspacing="0">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>작성자</th>
+          <th>방명록</th>
+          <th>수정</th>
+          <th>삭제</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- for문 작성 -->
+        <% for(let i =0; i<data.length; i++) {%>
+        <tr id="tr_<%=data[i].id %>">
+          <td><%=data[i].id %></td>
+          <td><%=data[i].name %></td>
+          <td><%=data[i].comment %></td>
+          <!-- ejs데이터 보낼때는 문자열 처리 필수라는거 잊지마세요!!!! -->
+          <td><button type="button" onclick="editVisitor('<%=data[i].id %>')">수정</button></td>
+          <td><button type="button" onclick="deleteVisitor(this, '<%=data[i].id %>')">삭제</button></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </body>
+</html>

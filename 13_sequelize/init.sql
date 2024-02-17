@@ -26,3 +26,6 @@ GRANT ALL PRIVILEGES ON *.* TO 'sesac'@'%' WITH GRANT OPTION;
 -- 모든 DB에 접근가능하도록 sesac계정에 DB접근 권한을 부여
 FLUSH PRIVILEGES;
 -- 현재 사용중인 sql캐시를 지우는 작업(필수!) 새로운 설정 적용
+
+SELECT * FROM user;
+DESC user;

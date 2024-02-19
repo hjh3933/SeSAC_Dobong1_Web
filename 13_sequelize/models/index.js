@@ -16,6 +16,8 @@ const sequelize = new Sequelize(
 db.sequelize = sequelize; //db = {sequelize:sequelize}
 db.Sequelize = Sequelize; //db = {sequelize:sequelize, Sequelize:Sequelize}
 
+//seq = 위에서 Seque클래스를 config로 설정한 db관련객체
+//Seq = 설치한 seq모듈(건드린것 X)
 db.Visitor = require("./Visitor")(sequelize, Sequelize);
 db.User = require("./User")(sequelize, Sequelize);
 module.exports = db;

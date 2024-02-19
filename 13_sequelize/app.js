@@ -12,6 +12,8 @@ app.use(express.json());
 // ./routes/index가 생략(index만!!생략가능)
 const indexRouter = require("./routes");
 app.use("/", indexRouter);
+const userRouter = require("./routes/user");
+app.use("/user", userRouter);
 
 app.get("*", (req, res) => {
   res.render("404");
@@ -19,7 +21,7 @@ app.get("*", (req, res) => {
 
 //db sync()
 db.sequelize.sync({ force: false }).then((result) => {
-  console.log(result);
+  // console.log(result);
   console.log("db연결 성공");
 });
 

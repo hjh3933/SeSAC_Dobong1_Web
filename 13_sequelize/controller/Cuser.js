@@ -1,9 +1,7 @@
 // TODO: 컨트롤러 코드
-const User = require("../models/User");
-// GET /user
-exports.main = (req, res) => {
-  res.render("index");
-};
+// const models = require("../models/index"); index만 불러도된다, 근데 어차피 index는 생략가능이라 똑같음
+const models = require("../models");
+
 // GET /user/signin
 exports.get_signin = (req, res) => {
   res.render("signin");
@@ -13,7 +11,6 @@ exports.get_signup = (req, res) => {
   res.render("signup");
 };
 
-const models = require("../models");
 // POST /user/signup
 // 회원가입
 exports.post_signup = (req, res) => {
@@ -24,6 +21,23 @@ exports.post_signup = (req, res) => {
     pw: req.body.pw,
   }).then((result) => {
     console.log("회원가입 결과", result);
+    // result =>
+    // User {
+    //   dataValues: { id: 11, userid: 'abcd', name: '알파벳맨', pw: '1234' },
+    //   _previousDataValues: { userid: 'abcd', name: '알파벳맨', pw: '1234', id: 11 },
+    //   uniqno: 1,
+    //   _changed: Set(0) {},
+    //   _options: {
+    //     isNewRecord: true,
+    //     _schema: null,
+    //     _schemaDelimiter: '',
+    //     attributes: undefined,
+    //     include: undefined,
+    //     raw: undefined,
+    //     silent: undefined
+    //   },
+    //   isNewRecord: false
+    // }
     res.send(result);
   });
 };
@@ -37,18 +51,24 @@ exports.post_signin = (req, res) => {
     where: { userid: req.body.userid, pw: req.body.pw },
   }).then((result) => {
     console.log("로그인 sequ결과!", result);
-    res.send(result);
+    // findOne을 이용해서 찾은 결과 반환
+    // 데이터를 못찾으면 null반환
+    if (result) {
+      res.send(true);
+    } else {
+      res.send(false);
+    }
   });
 };
 
 exports.post_profile = (req, res) => {
-  console.log("req.body", req.body);
+  // console.log("req.body", req.body);
 
   // const sql = `SELECT * FROM user WHERE userid = '${id}' LIMIT 1`;
   models.User.findOne({
     where: { userid: req.body.userid },
   }).then((result) => {
-    console.log(result);
+    console.log("login결과>>", result);
     res.render("profile", { data: result });
   });
 };
@@ -65,6 +85,7 @@ exports.edit_profile = (req, res) => {
       where: { id: req.body.id },
     }
   ).then((result) => {
+    // result = 성공시 [1], 실패시 [0] 반환
     res.end();
   });
 };
@@ -75,6 +96,7 @@ exports.delete_profile = (req, res) => {
   models.User.destroy({
     where: { id: req.body.id },
   }).then((result) => {
+    // result = 성공시 [1], 실패시 [0] 반환
     res.end();
   });
 };

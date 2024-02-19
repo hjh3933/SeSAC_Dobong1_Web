@@ -1,7 +1,9 @@
 //sequelize로 만들기
 const User = function (Sequelize, DataTypes) {
   const model = Sequelize.define(
+    // 1. model name
     "User",
+    // 2. column set
     {
       id: {
         type: DataTypes.INTEGER,
@@ -22,6 +24,7 @@ const User = function (Sequelize, DataTypes) {
         allowNull: false,
       },
     },
+    // 3. table option
     {
       tableName: "user",
       timestamps: false,

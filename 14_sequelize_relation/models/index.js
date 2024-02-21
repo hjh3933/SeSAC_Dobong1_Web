@@ -1,7 +1,18 @@
 "use strict";
 
 const Sequelize = require("sequelize");
-const config = require(__dirname + "/../config/config.json")["development"];
+// const config = require(__dirname + "/../config/config.json")["development"];
+
+//env사용할때는 js파일과 같이 사용
+const config = require(__dirname + "/../config/config.js")["development"];
+console.log("config >> ", config);
+// config >>  {
+//   username: 'sesac',
+//   password: '1234',
+//   database: 'sesac',
+//   host: '127.0.0.1',
+//   dialect: 'mysql'
+// }
 const db = {};
 
 //(1) sequelize클래스를 이용해서 instance 생성

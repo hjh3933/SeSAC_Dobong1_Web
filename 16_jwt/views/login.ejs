@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <!-- axios cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <form name="loginForm">
+      <input type="text" id="id" placeholder="아이디를 입력해주세요" />
+      <br />
+      <input type="password" id="pw" placeholder="비밀번호를 입력해주세요" />
+      <br />
+      <button type="button" onclick="login()">LOGIN</button>
+    </form>
+
+    <script>
+      async function login() {
+        const form = document.forms["loginForm"];
+        // POST /login
+        const response = await axios({
+          url: "/login",
+          method: "post",
+          data: {
+            id: form.id.value,
+            pw: form.pw.value,
+          },
+        });
+        console.log(response.data);
+        // {result, token}
+        // {result, message}
+        const { result, token, message } = response.data;
+        //성공 or 실패에 따라 undefined으로 오는 데이터가 있을 것
+      }
+    </script>
+  </body>
+</html>

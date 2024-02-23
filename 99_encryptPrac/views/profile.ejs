@@ -1,0 +1,85 @@
+<!-- 회원정보 수정, 탈퇴 -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <!-- axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h2>Profile</h2>
+    <form name="profileForm">
+      <p><input type="hidden" name="id" value="<%=data.id %>" /></p>
+      <ul>
+        <li>
+          <label for="userid">
+            userid:
+            <input type="text" name="userid" value="<%=data.userid%>" />
+          </label>
+        </li>
+        <li>
+          <label for="pw">
+            pw:
+            <input type="password" name="pw" value="<%=pw%>" />
+          </label>
+        </li>
+        <li>
+          <label for="name">
+            name:
+            <input type="text" name="name" value="<%=data.name%>" />
+          </label>
+        </li>
+      </ul>
+
+      <button onclick="userUpdate()">수정</button>
+      <button onclick="userDelete()">탈퇴</button>
+      <button onclick="postLogout()">로그아웃</button>
+    </form>
+    <script>
+      const form = document.forms["profileForm"];
+      //수정 함수
+      async function userUpdate() {
+        const response = await axios({
+          url: "/postUpdate",
+          method: "post",
+          data: {
+            id: form.id.value,
+            userid: form.userid.value,
+            pw: form.pw.value,
+            name: form.name.value,
+          },
+        });
+
+        if (response.data) {
+          console.log("response.data >> ", response.data);
+          //바로 view수정
+          alert("수정완료!");
+          form.userid.innerText = form.userid.value;
+          form.pw.innerText = form.pw.value;
+          form.name.innerText = form.name.value;
+        } else {
+          alert("수정실패 오류 발생!!");
+        }
+      }
+
+      //탈퇴 함수
+      async function userDelete() {
+        const check = confirm("정말 탈퇴하시겠습니까?");
+        if (check) {
+          const response = await axios({
+            url: "/postDelete",
+            method: "post",
+            data: {
+              id: form.id.value,
+            },
+          });
+        }
+      }
+
+      //로그아웃 함수
+      async function postLogout() {}
+    </script>
+  </body>
+</html>

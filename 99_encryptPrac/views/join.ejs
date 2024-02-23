@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <!-- axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h2>회원가입</h2>
+    <form name="joinForm">
+      <label for="userid">
+        <input type="text" name="userid" placeholder="아이디를 입력하세요" />
+      </label>
+      <br />
+      <label for="pw">
+        <input type="password" name="pw" placeholder="비밀번호를 입력하세요" />
+      </label>
+      <br />
+      <label for="name">
+        <input type="text" name="name" placeholder="이름을 입력하세요" />
+      </label>
+      <br />
+      <button type="button" onclick="postJoin()">회원가입</button>
+    </form>
+
+    <a href="/">Home</a>
+
+    <script>
+      //axios async/await로 post요청 전송 후 응답 받는 함수 작성
+      //Validation추가하기
+      const form = document.forms["joinForm"];
+      async function postJoin() {
+        const response = await axios({
+          url: "/postJoin",
+          method: "post",
+          data: {
+            userid: form.userid.value,
+            pw: form.pw.value,
+            name: form.name.value,
+          },
+        });
+
+        if (response.data) {
+          //회원가입 성공, login페이지로 이동
+          alert("회원가입 성공!");
+          document.location.href = "/getLogin";
+        } else {
+          alert("회원가입 실패");
+        }
+      }
+    </script>
+  </body>
+</html>

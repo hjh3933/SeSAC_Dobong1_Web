@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인</title>
+    <!-- axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h2>로그인</h2>
+    <form name="loginForm">
+      <label for="userid">
+        <input type="text" name="userid" placeholder="아이디를 입력하세요" />
+      </label>
+      <br />
+      <label for="pw">
+        <input type="password" name="pw" placeholder="비밀번호를 입력하세요" />
+      </label>
+      <br />
+      <button type="button" onclick="postLogin()">로그인</button>
+    </form>
+
+    <script>
+      const form = document.forms["loginForm"];
+      // // 로그인 성공시 실행되는 함수 작성
+      // async function postProfile() {
+      //   const response = await axios({
+      //     url: "/postProfile",
+      //     method: "post",
+      //     data: {
+      //       userid: form.userid.value,
+      //       pw: form.pw.value,
+      //     },
+      //   });
+      // }
+
+      // /postLogin으로 post요청 전송 후 응답받으면 profile페이지로 이동하고 session을 저장
+      async function postLogin() {
+        const response = await axios({
+          url: "/postLogin",
+          method: "post",
+          data: {
+            userid: form.userid.value,
+            pw: form.pw.value,
+          },
+        });
+
+        console.log(response.data); //암호화검증으로 T or F 값을 받아오도록 함
+        //if문으로 로그인 성공 or 실패 검증
+        if (response.data) {
+          //성공시 profile 페이지로 전송과 동시에 내 프로필 로드
+          alert("로그인 성공");
+
+          document.location.href = `/getProfile?id=${response.data.id}&pw=${form.pw.value}`;
+        } else {
+          //현재 페이지에 그대로 있음
+          alert("로그인 실패");
+        }
+      }
+    </script>
+  </body>
+</html>

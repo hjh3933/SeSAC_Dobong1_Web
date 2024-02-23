@@ -35,12 +35,12 @@
 
       <button onclick="userUpdate()">수정</button>
       <button onclick="userDelete()">탈퇴</button>
-      <button onclick="postLogout()">로그아웃</button>
+      <button onclick="getLogout()">로그아웃</button>
     </form>
     <script>
       const form = document.forms["profileForm"];
       //수정 함수
-      async function userUpdate() {
+      const userUpdate = async () => {
         const response = await axios({
           url: "/postUpdate",
           method: "post",
@@ -55,17 +55,17 @@
         if (response.data) {
           console.log("response.data >> ", response.data);
           //바로 view수정
+          form.userid.value = form.userid.value;
+          form.pw.value = form.pw.value;
+          form.name.value = form.name.value;
           alert("수정완료!");
-          form.userid.innerText = form.userid.value;
-          form.pw.innerText = form.pw.value;
-          form.name.innerText = form.name.value;
         } else {
           alert("수정실패 오류 발생!!");
         }
-      }
+      };
 
       //탈퇴 함수
-      async function userDelete() {
+      const userDelete = async () => {
         const check = confirm("정말 탈퇴하시겠습니까?");
         if (check) {
           const response = await axios({
@@ -75,11 +75,25 @@
               id: form.id.value,
             },
           });
+          if (response.data) {
+            document.location.href = "/";
+            // alert(response.data);
+          }
         }
-      }
+      };
 
       //로그아웃 함수
-      async function postLogout() {}
+      const getLogout = async () => {
+        const response = await axios({
+          url: "/getLogout",
+          method: "get",
+        });
+
+        if (response.data) {
+          document.location.href = "/getLogin";
+          alert(response.data);
+        }
+      };
     </script>
   </body>
 </html>

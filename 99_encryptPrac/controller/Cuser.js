@@ -92,7 +92,7 @@ exports.postUpdate = (req, res) => {
     }
   ).then((result) => {
     console.log("update결과 >> ", result);
-    if (result) {
+    if (result[0]) {
       res.send(true);
     } else {
       res.send(false);
@@ -103,6 +103,7 @@ exports.postUpdate = (req, res) => {
 exports.postDelete = (req, res) => {
   //세션삭제(여기부터 다시)
   const user = req.session.user;
+
   if (user) {
     req.session.destroy((err) => {
       if (err) {
@@ -110,13 +111,29 @@ exports.postDelete = (req, res) => {
         throw err;
       }
     });
+    //데이터 삭제
+    model.User.destroy({
+      where: { id: req.body.id },
+    }).then((response) => {
+      //세션 삭제되었는지 확인
+      // res.send("삭제완료");
+      res.send("삭제완료");
+    });
   }
+};
 
-  //데이터 삭제
-  model.User.destroy({
-    where: { id: req.body.id },
-  }).then((result) => {
-    //탈퇴 후 메인 페이지 이동
-    res.redirect("/");
-  });
+exports.getLogout = (req, res) => {
+  //세션 삭제
+  const user = req.session.user;
+  if (user) {
+    req.session.destroy((err) => {
+      if (err) {
+        res.status(500).send("server err");
+        throw err;
+      }
+    });
+    res.send("로그아웃하였습니다");
+  } else {
+    res.send("세션이 만료되었습니다");
+  }
 };

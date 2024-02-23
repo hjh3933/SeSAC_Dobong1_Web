@@ -13,5 +13,6 @@ router.post("/postJoin", controller.postJoin);
 router.post("/postLogin", controller.postLogin);
 router.post("/postUpdate", controller.postUpdate);
 router.post("/postDelete", controller.postDelete);
+router.get("/getLogout", controller.getLogout);
 
 module.exports = router;

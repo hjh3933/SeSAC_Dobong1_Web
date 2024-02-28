@@ -20,6 +20,7 @@ app.use(express.json());
 //app.use('/이 이름으로 사용할 거에요', express.static(실제폴더경로))
 app.use("/uploads", express.static(__dirname + "/uploads"));
 app.use("/static", express.static(__dirname + "/public"));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 // console.log("현재 위치한 폴더의 경로", __dirname); //~~~09 multer까지 나옴 /uploads를 적어서 위치 알려준거임!
 
 // const upload = multer({

@@ -1,0 +1,31 @@
+.div {
+  width: 100px;
+  height: 100px;
+  border: 1px solid gray;
+  border-radius: 50%;
+  background-color: aliceblue;
+}
+span {
+  text-decoration: underline;
+}
+.container {
+  width: 500px;
+  /* background-color: pink; */
+  text-align: center;
+  padding: 5px;
+}
+.title {
+  background-color: rgb(254, 222, 161);
+  color: rgb(162, 136, 90);
+  height: 50px;
+  line-height: 50px;
+  font-size: 2rem;
+}
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.inputBox input {
+  margin-top: 20px;
+}

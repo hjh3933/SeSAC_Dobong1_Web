@@ -26,14 +26,13 @@
 //     </div>
 //   );
 // }
-export function FunctionProps({ name, count, price }) {
+export function FunctionProps({ name, number, price }) {
   return (
     <div>
       <h5>{name}</h5>
       <p>
-        {count}개에 {price}원
+        {number}개에 {price}원
       </p>
-      <hr />
     </div>
   );
 }

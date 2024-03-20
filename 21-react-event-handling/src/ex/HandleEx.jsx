@@ -1,8 +1,8 @@
 import { useState } from "react";
 import apple from "../apple.jpg";
-import bananas from "../bananas.jpg";
-import grapes from "../grapes.jpg";
-import peaches from "../peaches.jpg";
+import bananas from "../banana.jpg";
+import grapes from "../grape.jpg";
+import peaches from "../peach.jpg";
 
 export function HandleEx() {
   const [text, setText] = useState("Hello World!");

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function PracticeMap2() {
   // state
@@ -12,8 +12,21 @@ export default function PracticeMap2() {
   const [inputWriter, setInputWriter] = useState(""); //제목 입력창
   const [inputSearch, setInputSearch] = useState(""); //검색어 입력창
   const [searchType, setSearchType] = useState("writer"); //검색 옵션 선택창
+  //ref
+  const writerRef = useRef();
+  const titleRef = useRef();
+
   // 함수
   const addComment = () => {
+    //값이 입력되지 않았을 때
+    if (inputWriter.trim().length === 0) {
+      writerRef.current.focus();
+      return;
+    } else if (inputTitle.trim.length === 0) {
+      titleRef.current.focus();
+      return;
+    }
+
     let newComment = {
       writer: inputWriter,
       title: inputTitle,
@@ -58,6 +71,7 @@ export default function PracticeMap2() {
           onChange={(e) => {
             setInputWriter(e.target.value);
           }}
+          ref={writerRef}
         />
         <label htmlFor="title">제목: </label>
         <input
@@ -67,6 +81,7 @@ export default function PracticeMap2() {
           onChange={(e) => {
             setInputTitle(e.target.value);
           }}
+          ref={titleRef}
         />
         <button onClick={addComment} type="button">
           작성

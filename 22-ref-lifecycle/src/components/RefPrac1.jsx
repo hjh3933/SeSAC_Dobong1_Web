@@ -1,14 +1,12 @@
 import { useRef } from "react";
-import { useState } from "react";
 
 export default function RefPrac1() {
-  const [inputColor, setInputColor] = useState();
   const bgRef = useRef();
   const inputRef = useRef();
 
   const changeBgColor = () => {
-    bgRef.current.style.backgroundColor = inputColor;
-    setInputColor("");
+    bgRef.current.style.backgroundColor = inputRef.current.value;
+    inputRef.current.value = "";
     inputRef.current.focus();
   };
   return (
@@ -21,13 +19,7 @@ export default function RefPrac1() {
         }}
         ref={bgRef}
       >
-        <input
-          type="text"
-          value={inputColor}
-          onChange={(e) => setInputColor(e.target.value)}
-          ref={inputRef}
-          style={{ marginBottom: "10px" }}
-        />
+        <input type="text" ref={inputRef} style={{ marginBottom: "10px" }} />
         <br />
         <button onClick={changeBgColor}>색 적용</button>
       </div>

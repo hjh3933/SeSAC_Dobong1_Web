@@ -1,0 +1,12 @@
+.box1 {
+  background-color: lightblue;
+}
+.box1 div {
+  width: 100px;
+  height: 100px;
+  background-color: pink;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}

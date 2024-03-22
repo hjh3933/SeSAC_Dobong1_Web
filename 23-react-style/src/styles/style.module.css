@@ -1,0 +1,26 @@
+.container {
+  border: 1px solid violet;
+  padding: 0.5rem;
+  margin: 1rem 0;
+}
+.box2 {
+  background-color: lightblue;
+}
+.box2 div {
+  width: 100px;
+  height: 100px;
+  background-color: pink;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+/* 클래스 여러개 지정 */
+.first {
+  color: gray;
+  font-size: 1.5rem;
+}
+.second {
+  background-color: gold;
+  border: 3px solid slateblue;
+}

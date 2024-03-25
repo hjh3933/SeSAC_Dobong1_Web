@@ -1,0 +1,237 @@
+/*
+ 1. 기본
+ - nesting
+ - 자기자신 선택 &
+ - 변수 사용 
+*/
+// _name 파일은 import가 가능 import할 때는 _없이 적으면 된다
+@import "utils";
+
+.div1 {
+  width: 100px;
+  height: 100px;
+  background-color: $color-red;
+  .div2 {
+    width: 50%;
+    height: 50%;
+    background-color: $color-orange;
+    // inset: 안쪽으로 그림자가 지게하는 키워드
+    box-shadow: inset $boxShadow;
+    .div3 {
+      background-color: $color-yellow;
+      width: 50%;
+      height: 50%;
+      box-shadow: $boxShadow;
+    }
+  }
+  .btn {
+    display: inline-block;
+    transition: $animation-duration;
+    width: 33%;
+    font-size: 8px;
+    height: 40px;
+    padding: 0;
+    color: white;
+
+    &.orangeRed {
+      background-color: orangered;
+    }
+
+    &--opacity {
+      background-color: $color-blue;
+      opacity: 0.5;
+      &:hover {
+        opacity: 0.2;
+      }
+    }
+
+    &--blue {
+      background-color: $color-blue;
+    }
+  }
+}
+
+.container {
+  width: 100%;
+  background-color: gainsboro;
+  .box1 {
+    @include box;
+    // &:nth-child(1) {
+    //   width: 100px;
+    // }
+    // &:nth-child(2) {
+    //   width: 120px;
+    // }
+    // &:nth-child(3) {
+    //   width: 140px;
+    // }
+
+    //for문 i가 1부터 3까지 반복
+    @for $i from 1 through 3 {
+      // 연산하는 곳은 $i, 아니면 #{}로 보강작업 필요
+      &:nth-child(#{$i}) {
+        width: 80px + 20px * $i;
+      }
+    }
+  }
+  .circle {
+    // @include circle($color-red, 0.8);
+    //배열 만들기
+    $circleBgColors: ($color-orange, $color-yellow, $color-green);
+
+    // &:nth-of-type(1) {
+    //   @include circle($color-red, 0.8);
+    // }
+    // &:nth-of-type(2) {
+    // }
+    // &:nth-of-type(3) {
+    // }
+
+    //each - for of문과 비슷하다고 보면된다
+    @each $el in $circleBgColors {
+      //scss가 제공하는 index함수(배열list, value 요소) -> value에대한 index를 반환하게됨 1,2,3
+      //1부터 시작한다는 점 주의
+      $index: index($circleBgColors, $el);
+      &:nth-of-type(#{$index}) {
+        @include circle($el, 0.8);
+      }
+    }
+  }
+  .box2 {
+    @include box2();
+    &:nth-of-type(4) {
+      @include box2($color-yellow, 20px, navy);
+    }
+    &:nth-of-type(5) {
+      @include box2(orangered, 30px, black);
+    }
+  }
+}
+
+//이미지에 접근하기
+.img-test {
+  width: 100px;
+  height: 100px;
+  border: 1px solid blue;
+  &.src-img {
+    //background-image 속성은 상대경로 사용
+    background-image: url("../assets/piglet.jpg");
+    background-size: contain;
+  }
+  &.public-img {
+    //root부터 접근, public은 절대경로 사용
+    background-image: url("/assets/piglet.jpg");
+    background-size: contain;
+  }
+}
+
+.practice {
+  display: flex;
+  justify-content: space-evenly;
+  > div {
+    width: 100px;
+    height: 200px;
+    // border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: $boxShadow;
+    background-color: $color-blue;
+    cursor: pointer;
+
+    @for $i from 1 through 4 {
+      &:nth-of-type(#{$i}) {
+        background-image: url("../assets/practice" + $i + ".png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+  }
+}
+
+// 애벌레 css
+.larva {
+  position: relative;
+  .body {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+
+    .eye {
+      border-radius: 50%;
+      background-color: black;
+      &.eye-white {
+        background-color: white;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: 20px;
+        left: 30px;
+      }
+      &.eye-black {
+        background-color: black;
+        width: 15px;
+        height: 15px;
+        position: relative;
+        top: 5px;
+        left: 0px;
+      }
+    }
+  }
+  .body1 {
+    top: 100px;
+    left: 100px;
+    background-color: rgb(0, 0, 166);
+  }
+  .body2 {
+    top: 150px;
+    left: 160px;
+    background-color: rgb(36, 61, 206);
+  }
+  .body3 {
+    top: 190px;
+    left: 200px;
+    background-color: rgb(52, 118, 231);
+  }
+  .body4 {
+    top: 240px;
+    left: 220px;
+    background-color: rgb(47, 146, 233);
+  }
+  .body5 {
+    top: 280px;
+    left: 280px;
+    background-color: rgb(140, 191, 253);
+    z-index: 10;
+  }
+  .grass {
+    position: absolute;
+    top: 260px;
+    left: 0;
+  }
+}
+
+// 실습 2번
+.ballBox {
+  //   position: relative;
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  .ball {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: black;
+    position: relative;
+
+    &:nth-of-type(1) {
+      @include ballMove($color-pink, 10px);
+    }
+    &:nth-of-type(2) {
+      @include ballMove($color-yellow, 20px);
+    }
+    &:nth-of-type(3) {
+      @include ballMove($color-green, 30px);
+    }
+  }
+}

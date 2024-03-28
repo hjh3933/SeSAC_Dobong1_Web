@@ -6,9 +6,9 @@ export default function UseMemoObj() {
   // 어떤 state가 변경되면 컴포넌트가 다시 읽힌다
   //obj는 주소가 다른곳으로 매번 저장되고 주소값으로 비교하기 때문에 다른값 즉 바뀌었다고
   //   인식해서 콘솔에 계속 뜨는 것이다
-  //   const location = {
-  //     country: isKorea ? "한국" : "외국",
-  //   };
+  // const location = {
+  //   country: isKorea ? "한국" : "외국",
+  // };
   //   const location = isKorea ? "한국" : "외국"; 이렇게 문자열로 저장하면 input창이 변경되는 것으로 콘솔에 뜨지않는다
   const location = useMemo(() => {
     return {

@@ -19,7 +19,7 @@ function App() {
       <UseCallback2 /> */}
       {/* <UseReducer />
       <CustomHook /> */}
-      {/* <Form /> */}
+      <Form />
       <hr />
       <UseFormPrac1 />
     </>

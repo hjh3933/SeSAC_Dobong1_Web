@@ -1,0 +1,89 @@
+body {
+  background-color: rgb(244, 244, 239);
+}
+main {
+  .mainTitle {
+    text-align: center;
+    color: gray;
+  }
+  .ListContainer {
+    .TodoList {
+      border: 2px solid pink;
+      color: salmon;
+      margin: 10px;
+      padding: 10px;
+      box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+      background-color: rgb(250, 250, 228);
+      div {
+        input {
+          margin-right: 5px;
+          height: 20px;
+        }
+        button {
+          background-color: pink;
+          border: none;
+          border-radius: 5px;
+          padding: 5px;
+          &:hover {
+            background-color: salmon;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+          }
+        }
+      }
+      ul {
+        li {
+          span {
+            color: black;
+            min-width: 200px;
+            display: inline-block;
+            border-bottom: 1px solid salmon;
+            padding: 0 5px;
+            margin-right: 5px;
+            &:hover {
+              background-color: salmon;
+              color: white;
+            }
+          }
+          button {
+            background-color: pink;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+            &:hover {
+              background-color: salmon;
+              color: white;
+              font-weight: 700;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+    .DoneList {
+      border: 2px solid lightblue;
+      color: skyblue;
+      margin: 10px;
+      padding: 10px;
+      background-color: rgb(250, 250, 228);
+      box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+      ul {
+        li {
+          span {
+            color: black;
+            min-width: 200px;
+            display: inline-block;
+            border-bottom: 1px solid skyblue;
+            padding: 0 5px;
+            margin-right: 5px;
+            &:hover {
+              background-color: skyblue;
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+}

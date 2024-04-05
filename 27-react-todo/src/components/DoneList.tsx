@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux";
+import { RootState } from "../interface";
 
 export default function DoneList() {
-  const lists = useSelector((state) => state.todo.list);
+  const lists = useSelector((state: RootState) => state.todo.list);
   const doneList = lists.filter((list) => {
     return list.done === true;
   });

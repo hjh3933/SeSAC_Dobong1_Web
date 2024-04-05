@@ -1,25 +1,30 @@
 import { useDispatch, useSelector } from "react-redux";
 import { create, done } from "../store/module/todo";
 import { useRef } from "react";
+import { RootState } from "../interface";
 
 export default function TodoList() {
-  const lists = useSelector((state) => state.todo.list);
+  const lists = useSelector((state: RootState) => state.todo.list);
   const dispatch = useDispatch();
-  const todoRef = useRef();
-  const nextID = useSelector((state) => state.todo.nextID);
+  const todoRef = useRef<HTMLInputElement>(null);
+  const nextID = useSelector((state: RootState) => state.todo.nextID);
   // console.log(lists);
   // console.log(list[0].text); //접근법
   const todoList = lists.filter((list) => {
     return list.done === false;
   });
   const createTodo = () => {
-    dispatch(
-      create({
-        id: nextID,
-        text: todoRef.current.value,
-      })
-    );
-    todoRef.current.value = "";
+    if (todoRef.current) {
+      if (nextID) {
+        dispatch(
+          create({
+            id: nextID,
+            text: todoRef.current.value,
+          })
+        );
+        todoRef.current.value = "";
+      }
+    }
   };
   return (
     <section className="TodoList">

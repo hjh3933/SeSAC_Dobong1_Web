@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>채팅방입니다</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #space {
+        background-color: skyblue;
+        min-height: 400px;
+        max-height: 400px;
+        max-width: 400px;
+        min-width: 400px;
+        padding: 20px;
+      }
+      #space {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      p {
+        padding: 5px 10px;
+        min-width: 30%;
+        max-height: 400px;
+        border-radius: 10px;
+        font-weight: 600;
+        margin: 10px 0;
+        display: block;
+        text-align: center;
+      }
+      .me {
+        background-color: yellow;
+        margin-left: auto;
+      }
+      .you {
+        background-color: white;
+        margin-right: auto;
+      }
+      #chat {
+        max-width: 440px;
+        min-width: 440px;
+        display: flex;
+        justify-content: center;
+        padding: 0;
+      }
+      #message {
+        width: 70%;
+        height: 30px;
+        line-height: 30px;
+      }
+      button {
+        width: 30%;
+        font-weight: bold;
+      }
+      button:hover {
+        background-color: gray;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 채팅내용 -->
+    <div id="space">
+      <!-- ~~가 입장했습니다. -->
+      <div id="users"></div>
+    </div>
+    <form id="chat">
+      <input type="text" placeholder="채팅 내용" id="message" />
+      <button>SEND</button>
+    </form>
+    <script>
+      const socket = io();
+      const users = document.querySelector("#users");
+      const space = document.querySelector("#space");
+      const chatForm = document.querySelector("#chat");
+      const chattingRoom = prompt("채팅방 이름을 입력해주세요");
+
+      const h2 = document.createElement("h2");
+      h2.innerText = `채팅방 ${chattingRoom}`;
+      document.body.prepend(h2);
+
+      // 1. 클라이언트에서 서버에게, 방이름 전달
+      socket.emit("join", chattingRoom);
+
+      // 4. 입장메시지 띄우기
+      socket.on("userjoin", (notice) => {
+        const p = document.createElement("p");
+        p.textContent = notice;
+        users.append(p);
+        // 2초후 입장 문구 없애기
+        setTimeout(() => {
+          p.remove();
+        }, 2000);
+      });
+
+      //5. 서버에 메시지 보내기
+      chatForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const input = chatForm.querySelector("#message");
+        const message = input.value;
+        socket.emit("message", message, (res) => {});
+
+        input.value = "";
+      });
+
+      //7. 메시지 받아서 띄우기
+      socket.on("message_toAll", (message, id) => {
+        //id를 socket.id와 비교
+        const p = document.createElement("p");
+        p.textContent = `${id}: ${message}`;
+        if (id === socket.id) {
+          //나는 노란색
+          p.classList.add("me");
+        } else {
+          p.classList.add("you");
+        }
+        space.append(p);
+      });
+    </script>
+  </body>
+</html>

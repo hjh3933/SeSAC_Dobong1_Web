@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습문제</title>
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <h3>실습문제</h3>
+    <h2>Hello World</h2>
+    <button type="button" id="hello">hello</button>
+    <button type="button" id="study">study</button>
+    <button type="button" id="bye">bye</button>
+    <div id="response"></div>
+
+    <script>
+      const socket = io();
+      const helloBtn = document.querySelector("#hello");
+      const studyBtn = document.querySelector("#study");
+      const byeBtn = document.querySelector("#bye");
+
+      //클릭이벤트
+      function clickEvent(e) {
+        e.preventDefault();
+        const message = e.target.textContent;
+        console.log(message);
+        socket.emit("messagePrac", message, (res) => {
+          console.log("응답", res);
+          const response = document.querySelector("#response");
+          const txt = document.createElement("p");
+          txt.innerText = res;
+          response.append(txt);
+        });
+      }
+      helloBtn.addEventListener("click", clickEvent);
+      studyBtn.addEventListener("click", clickEvent);
+      byeBtn.addEventListener("click", clickEvent);
+    </script>
+  </body>
+</html>

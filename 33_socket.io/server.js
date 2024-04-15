@@ -20,7 +20,9 @@ app.get("/practice", (req, res) => {
   res.render("practice");
 });
 
-const nickInfo = {};
+// 방별로 닉네임을 저장할 객체
+const roomNicks = {};
+
 io.on("connection", (socket) => {
   console.log("socket id >> ", socket.id); //따로 생성 필요없이 원래 제공해줌
   //LDmZYR2_hQ6hfZXeAAAB
@@ -46,18 +48,22 @@ io.on("connection", (socket) => {
   //   console.log("방 만들어지기 전", socket.rooms);
   // 2. 클라이언트에게 방이름을 전달받아서 방 생성
   socket.on("join", (chatRoom, name) => {
+    // 해당 방이 존재하지 않으면 방 정보를 초기화
+    if (!roomNicks[chatRoom]) {
+      roomNicks[chatRoom] = {};
+    }
     // console.log(chatRoom);
 
     // console.log(nickInfo);
     // console.log(Object.values(nickInfo)); //value만 배열로 반환
 
     //요소의 인덱스 반환, 없는 요소일 경우 -1반환
-    if (Object.values(nickInfo).indexOf(name) > -1) {
+    if (Object.values(roomNicks[chatRoom]).includes(name)) {
       //중복닉네임
       socket.emit("error", "이미 존재하는 닉네임입니다.");
     } else {
       //사용가능 닉네임
-      nickInfo[socket.id] = name;
+      roomNicks[chatRoom][socket.id] = name;
 
       socket.join(chatRoom); //채팅방 만들기 join(방이름)
       // console.log("방 만들어지고 나서", socket.rooms);
@@ -72,7 +78,7 @@ io.on("connection", (socket) => {
         .emit("userjoin", `${name}님이 입장하셨습니다`);
 
       // 나 포함 내가 참여한 채팅방 모두에게
-      io.to(chatRoom).emit("updateNicks", nickInfo);
+      io.to(chatRoom).emit("updateNicks", roomNicks[chatRoom]);
     }
   });
 
@@ -96,14 +102,18 @@ io.on("connection", (socket) => {
   });
   //퇴장
   socket.on("disconnect", () => {
+    if (!roomNicks[socket.room]) return;
     // notice ~님이 퇴장하셨습니다. 공고 화면에 띄우기
     socket.broadcast
       .to(socket.room)
-      .emit("userjoin", `${nickInfo[socket.id]}님이 퇴장하셨습니다`);
+      .emit(
+        "userjoin",
+        `${roomNicks[socket.room][socket.id]}님이 퇴장하셨습니다`
+      );
     // nickInfo {}에서 특정 키 삭제
-    delete nickInfo[socket.id];
+    delete roomNicks[socket.room][socket.id];
     // 클라이언트에게 변경된 객체 정보 전달
-    io.to(socket.room).emit("updateNicks", nickInfo);
+    io.to(socket.room).emit("updateNicks", roomNicks[socket.room]);
   });
 
   //-----------------------------실습--------------------------

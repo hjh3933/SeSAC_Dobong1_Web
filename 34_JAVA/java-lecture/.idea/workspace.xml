@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2af18266-5405-4f62-b165-4d452b64b855" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/_02_control_statement/Loop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_02_control_statement/Method.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_02_control_statement/MethodOverloading.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_02_control_statement/Practice0513.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_03_array/ArrayEx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_03_array/ArrayListEx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_03_array/Practice0513.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;hjh3933&quot;
+  }
+}</component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/hjh3933/SeSAC_Dobong1_Web.git&quot;,
+    &quot;accountId&quot;: &quot;574a5817-2cc1-48f2-b495-4e7fa653297e&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$PROJECT_DIR$/../../../../../../../../Program Files/Java/jdk-17/lib/src.zip!/java.base/java/util/Arrays.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2gGI3BSIzJkGA4sGDpE20JDfyKk" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "Application.ArrayEx.executor": "Run",
+    "Application.ArrayListEx.executor": "Run",
+    "Application.Casting.executor": "Run",
+    "Application.Conditional.executor": "Run",
+    "Application.DataTypes.executor": "Run",
+    "Application.InputOutput.executor": "Run",
+    "Application.Loop.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.Method.executor": "Run",
+    "Application.MethodOverloading.executor": "Run",
+    "Application.Operator.executor": "Run",
+    "Application.Practice0513.executor": "Run",
+    "Application._03_array.Practice0513.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/user/OneDrive/바탕 화면/github/SSAC_dobong/34_JAVA/java-lecture",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Java"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application._03_array.Practice0513">
+    <configuration name="ArrayEx" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="_03_array.ArrayEx" />
+      <module name="java-lecture" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="_03_array.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ArrayListEx" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="_03_array.ArrayListEx" />
+      <module name="java-lecture" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="_03_array.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MethodOverloading" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="_02_control_statement.MethodOverloading" />
+      <module name="java-lecture" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="_02_control_statement.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Practice0513" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="_02_control_statement.Practice0513" />
+      <module name="java-lecture" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="_02_control_statement.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="_03_array.Practice0513" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="_03_array.Practice0513" />
+      <module name="java-lecture" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="_03_array.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application._03_array.Practice0513" />
+        <item itemvalue="Application.ArrayListEx" />
+        <item itemvalue="Application.ArrayEx" />
+        <item itemvalue="Application.Practice0513" />
+        <item itemvalue="Application.MethodOverloading" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2af18266-5405-4f62-b165-4d452b64b855" name="Changes" comment="" />
+      <created>1715317286133</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1715317286133</updated>
+    </task>
+    <servers />
+  </component>
+</project>

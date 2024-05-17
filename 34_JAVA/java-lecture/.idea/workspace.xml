@@ -4,14 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2af18266-5405-4f62-b165-4d452b64b855" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/_02_control_statement/Loop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_02_control_statement/Method.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_02_control_statement/MethodOverloading.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_02_control_statement/Practice0513.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_03_array/ArrayEx.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_03_array/ArrayListEx.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_03_array/Practice0513.java" afterDir="false" />
+    <list default="true" id="2af18266-5405-4f62-b165-4d452b64b855" name="Changes" comment="0513java study">
+      <change afterPath="$PROJECT_DIR$/src/_04_Exception/ExceptionEx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_04_Exception/Practice0517.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac1/Circle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac1/CircleEx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac1/Rectangle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac1/RectangleEx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac1/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_05_Class/Puppy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_05_Class/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_05_Class/StudentEx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_05_Class/a_access_modifier/pack1/A.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_05_Class/a_access_modifier/pack1/B.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_05_Class/a_access_modifier/pack2/C.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_05_Class/a_access_modifier/pack3/A.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_05_Class/a_access_modifier/pack3/B.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_05_Class/a_access_modifier/pack4/C.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_05_Class/a_access_modifier/pack5/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_05_Class/a_access_modifier/pack5/PersonEx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_05_Class/b_static/Calculator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_05_Class/b_static/CalculatorEx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_05_Class/b_static/Laptop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_05_Class/c_final/Const.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_05_Class/c_final/ConstEx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_05_Class/c_final/FinalUpgrade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_05_Class/c_final/FinalVariableEx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,17 +84,32 @@
     "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "Application.ArrayEx.executor": "Run",
     "Application.ArrayListEx.executor": "Run",
+    "Application.B.executor": "Run",
+    "Application.Calculator.executor": "Run",
+    "Application.CalculatorEx.executor": "Run",
     "Application.Casting.executor": "Run",
+    "Application.CircleEx.executor": "Run",
     "Application.Conditional.executor": "Run",
+    "Application.ConstEx.executor": "Run",
     "Application.DataTypes.executor": "Run",
+    "Application.ExceptionEx.executor": "Run",
+    "Application.FinalUpgrade.executor": "Run",
+    "Application.FinalVariableEx.executor": "Run",
     "Application.InputOutput.executor": "Run",
     "Application.Loop.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.Method.executor": "Run",
     "Application.MethodOverloading.executor": "Run",
     "Application.Operator.executor": "Run",
+    "Application.PersonEx.executor": "Run",
     "Application.Practice0513.executor": "Run",
+    "Application.Practice0517.executor": "Run",
+    "Application.Puppy.executor": "Run",
+    "Application.RectangleEx.executor": "Run",
+    "Application.Student.executor": "Run",
+    "Application.StudentEx.executor": "Run",
     "Application._03_array.Practice0513.executor": "Run",
+    "Application._05_Class.a_access_modifier.pack3.B.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
@@ -84,13 +118,13 @@
     "settings.editor.selected.configurable": "preferences.sourceCode.Java"
   }
 }]]></component>
-  <component name="RunManager" selected="Application._03_array.Practice0513">
-    <configuration name="ArrayEx" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="_03_array.ArrayEx" />
+  <component name="RunManager" selected="Application.CircleEx">
+    <configuration name="CircleEx" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="_05_Class.Prac1.CircleEx" />
       <module name="java-lecture" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="_03_array.*" />
+          <option name="PATTERN" value="_05_Class.Prac1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -98,12 +132,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ArrayListEx" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="_03_array.ArrayListEx" />
+    <configuration name="ConstEx" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="_05_Class.c_final.ConstEx" />
       <module name="java-lecture" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="_03_array.*" />
+          <option name="PATTERN" value="_05_Class.c_final.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -111,12 +145,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MethodOverloading" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="_02_control_statement.MethodOverloading" />
+    <configuration name="FinalUpgrade" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="_05_Class.c_final.FinalUpgrade" />
       <module name="java-lecture" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="_02_control_statement.*" />
+          <option name="PATTERN" value="_05_Class.c_final.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -124,12 +158,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Practice0513" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="_02_control_statement.Practice0513" />
+    <configuration name="RectangleEx" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="_05_Class.Prac1.RectangleEx" />
       <module name="java-lecture" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="_02_control_statement.*" />
+          <option name="PATTERN" value="_05_Class.Prac1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -137,12 +171,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="_03_array.Practice0513" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="_03_array.Practice0513" />
+    <configuration name="Student" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="_05_Class.Prac1.Student" />
       <module name="java-lecture" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="_03_array.*" />
+          <option name="PATTERN" value="_05_Class.Prac1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -152,11 +186,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application._03_array.Practice0513" />
-        <item itemvalue="Application.ArrayListEx" />
-        <item itemvalue="Application.ArrayEx" />
-        <item itemvalue="Application.Practice0513" />
-        <item itemvalue="Application.MethodOverloading" />
+        <item itemvalue="Application.CircleEx" />
+        <item itemvalue="Application.Student" />
+        <item itemvalue="Application.RectangleEx" />
+        <item itemvalue="Application.FinalUpgrade" />
+        <item itemvalue="Application.ConstEx" />
       </list>
     </recent_temporary>
   </component>
@@ -169,6 +203,31 @@
       <option name="presentableId" value="Default" />
       <updated>1715317286133</updated>
     </task>
+    <task id="LOCAL-00001" summary="0513java study">
+      <option name="closed" value="true" />
+      <created>1715586219611</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1715586219611</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="0510java배움" />
+    <MESSAGE value="0513java study" />
+    <option name="LAST_COMMIT_MESSAGE" value="0513java study" />
   </component>
 </project>

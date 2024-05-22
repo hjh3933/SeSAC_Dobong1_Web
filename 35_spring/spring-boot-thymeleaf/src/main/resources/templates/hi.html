@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>hello</h1>
+  <!-- th:text = innerText -->
+  <h2 th:text="'안녕하세요 ' + ${msg}"></h2>
+  <!-- th:text = innerHtml -->
+  <div th:utext="${msg2}"></div>
+
+
+  <input type="text" th:value="${msg}"/>
+
+  <!--  if ~ else 사용시 둘 다 조건 적어야 함 else if는 불가  -->
+  <div th:if="${age}>=20">성인입니다</div>
+  <div th:unless="${age}>=20">미성년자입니다</div>
+
+  <div th:if="${msg}=='hello'">hello.</div>
+
+  <div th:switch="${userType}">
+    <div th:case="Admin">권한이 있습니다</div>
+    <div th:case="User">권한이 필요합니다.</div>
+    <div th:case="*">로그인이 필요합니다.</div>
+    <!--    th:case="*" default를 의미함   -->
+  </div>
+
+  <!--  반복문 (변수:${배열}) -->
+  <div th:each="fruit:${fruits}">
+    <div th:text="${fruit}"></div>
+  </div>
+
+
+  <!--  thymeleaf로 link 태그 사용 법  -->
+  <a href="https://www.naver.com/">naver</a>
+  <a th:href="@{https://www.naver.com/}">naver</a>
+  <a th:href="@{/test}">test</a>
+  <a th:href="@{{link}(link=${url})}">google</a>
+
+  <!--객체 전달받아 getter 메소드 사용-->
+  <div th:text="${hello.getMsg()}"></div>
+</body>
+</html>

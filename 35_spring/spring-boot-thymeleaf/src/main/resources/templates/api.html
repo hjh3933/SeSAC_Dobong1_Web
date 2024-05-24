@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- axios cdn -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <h3>DTO를 이용 post전송</h3>
+  <form action="/api/res4" method="post">
+    이름: <input type="text" name="name" placeholder="이름">
+    나이: <input type="number" name="age" placeholder="나이">
+    <button type="submit">전송</button>
+  </form>
+  <h3>VO를 이용 post전송</h3>
+  <form action="/api/res5" method="post">
+    이름: <input type="text" name="name" placeholder="이름">
+    나이: <input type="number" name="age" placeholder="나이">
+    <button type="submit">전송</button>
+  </form>
+  <h3>DTO를 이용 get전송</h3>
+  <form action="/api/res6" method="get">
+    이름: <input type="text" name="name" placeholder="이름">
+    나이: <input type="number" name="age" placeholder="나이">
+    <button type="submit">전송</button>
+  </form>
+  <h3>DTO+@RequestBody 이용 get전송</h3>
+  <form action="/api/res7" method="get">
+    이름: <input type="text" name="name" placeholder="이름">
+    나이: <input type="number" name="age" placeholder="나이">
+    <button type="submit">전송</button>
+  </form>
+  <h3>DTO+@RequestBody 이용 post전송</h3>
+  <form action="/api/res8" method="post">
+    이름: <input type="text" name="name" placeholder="이름">
+    나이: <input type="number" name="age" placeholder="나이">
+    <button type="submit">전송</button>
+  </form>
+  <h3>axios+DTO+@RequestBody 이용 post 동적 폼 전송</h3>
+  <form action="/api/res9" method="post" id="form_res9">
+    이름: <input type="text" name="name" placeholder="이름">
+    나이: <input type="number" name="age" placeholder="나이">
+    <button type="button" onclick="postRes9()">전송</button>
+  </form>
+  <h3>axios+VO+@RequestBody 이용 post 동적 폼 전송</h3>
+  <form action="/api/res10" method="post" id="form_res10">
+    이름: <input type="text" name="name" placeholder="이름">
+    나이: <input type="number" name="age" placeholder="나이">
+    <button type="button" onclick="postRes10()">전송</button>
+  </form>
+  <script>
+    function postRes9() {
+      const form = document.getElementById("form_res9");
+      const data = {
+        name: form.name.value,
+        age: form.age.value,
+      }
+      axios.post("/api/res9", data).then((res)=>{
+        console.log(res.data);
+      })
+<!--       axios.post(`/api/res9?name=${data.name}&age=${data.age}`).then((res)=>{-->
+<!--        console.log(res.data);-->
+<!--      })-->
+    }
+    function postRes10() {
+      const form = document.getElementById("form_res10");
+      const data = {
+        name: form.name.value,
+        age: form.age.value,
+      }
+      axios.post("/api/res10", data).then((res)=>{
+        console.log(res.data);
+      })
+    }
+  </script>
+</body>
+</html>

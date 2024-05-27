@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lecture.spring_boot_mybatis.mapper.BoardMapper">
+    <select id="retrieveAll" resultType="lecture.spring_boot_mybatis.domain.Board">
+        SELECT board.* FROM board
+    </select>
+    <select id="retrieveSearch" resultType="lecture.spring_boot_mybatis.domain.Board" parameterType="String">
+        SELECT board.* FROM board WHERE title LIKE CONCAT('%', #{search}, '%')
+        OR content LIKE CONCAT('%', #{search}, '%')
+        OR writer LIKE CONCAT('%', #{search}, '%')
+    </select>
+    <insert id="insertBoard" parameterType="map">
+        INSERT INTO board (title, content, writer) VALUES (#{title},#{content},#{writer})
+    </insert>
+    <update id="updateBoard" parameterType="map">
+        UPDATE board SET title = #{title}, content = #{content}, writer = #{writer} WHERE id = #{id}
+    </update>
+    <delete id="deleteBoard" parameterType="Integer">
+        DELETE FROM board WHERE id = #{id}
+    </delete>
+</mapper>

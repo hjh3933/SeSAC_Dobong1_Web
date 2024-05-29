@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Axios CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <title>게시판</title>
+  <style>
+    table {
+        margin-top: 10px;
+        border: 1px solid black;
+        border-collapse: collapse;
+        min-width: 600px;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h2>게시판</h2>
+  <input type="text" name="search" id="search" placeholder="검색어를 입력하세요">
+  <button type="button" onclick="searchBoard()">검색</button>
+  <br/>
+  <br/>
+  <br/>
+  <form id="boardForm">
+    <input type="text" name="title" placeholder="제목">
+    <input type="text" name="content" placeholder="내용">
+    <input type="text" name="writer" placeholder="작성자">
+    <button type="button" onclick="insertBoard()">작성</button>
+  </form>
+  <h3>검색 게시글</h3>
+  <div id="searchResult"></div>
+  <h3>전체 게시글</h3>
+  <table>
+    <tr>
+      <th>No.</th>
+      <th>ID</th>
+      <th>제목</th>
+      <th>작성자</th>
+      <th>작성일</th>
+      <th>수정</th>
+      <th>삭제</th>
+    </tr>
+    <tr th:each="board:${boards}">
+      <td th:text="${board.no}"></td>
+      <td th:text="${board.id}"></td>
+      <td th:text="${board.title}"></td>
+      <td th:text="${board.writer}"></td>
+      <td th:text="${board.register}"></td>
+      <td><button type="button" th:value="${board.id}" onclick="updateBoard(this.value)">수정</button></td>
+      <td><button type="button" th:value="${board.id}" onclick="deleteBoard(this.value)">삭제</button></td>
+    </tr>
+  </table>
+  <script>
+    const form = document.getElementById("boardForm");
+    // 작성
+    function insertBoard() {
+      const data = {
+        title: form.title.value,
+        content: form.content.value,
+        writer: form.writer.value,
+      }
+      if (data.title.trim() === '' || data.content.trim() === '' || data.writer.trim() === '') {
+        alert("제목, 내용, 작성자 모두 입력해주세요");
+        return;
+      }
+      axios.post("/board", data).then((res)=>{
+        console.log(res.data);
+        alert("등록을 완료했습니다");
+        window.location.reload();
+
+      })
+    }
+    // 수정
+    function updateBoard(id) {
+      console.log("클릭한 id는", id);
+      const data = {
+        title: form.title.value,
+        content: form.content.value,
+        writer: form.writer.value,
+      }
+      // 값이 공백인지 확인하는 if
+      if (data.title.trim() === '' || data.content.trim() === '' || data.writer.trim() === '') {
+        alert("제목, 내용, 작성자 모두 입력해주세요");
+        return;
+      }
+      axios.patch(`/board/${id}`, data).then((res)=>{
+        console.log(res.data);
+        alert("수정을 완료했습니다");
+        window.location.reload();
+      })
+    }
+    // 삭제
+    function deleteBoard(id) {
+      console.log("클릭한 id는", id);
+      const res = confirm("정말 삭제하시겠습니까?");
+      if(!res) return;
+      axios.delete(`/board/${id}`).then((res)=>{
+        console.log(res.data);
+        alert("삭제를 완료했습니다");
+        window.location.reload();
+      })
+    }
+    // 검색
+    function searchBoard() {
+      const search = document.getElementById("search").value;
+
+      if(search.trim() === '') {
+        alert("검색어를 입력해주세요");
+        return;
+      }
+      console.log("검색어", search);
+      axios.get(`/board/search/${search}`).then((res)=>{
+        console.log(res.data);
+        // gpt
+        const searchData = res.data;
+    if (searchData.length === 0) {
+        // 검색 결과가 없는 경우
+        alert("검색 결과가 없습니다.");
+    } else {
+        // 검색 결과가 있는 경우
+        const table = document.createElement('table');
+        table.innerHTML = `
+            <tr>
+                <th>No.</th>
+                <th>ID</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+                <th>수정</th>
+                <th>삭제</th>
+            </tr>
+        `;
+        searchData.forEach((board, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${board.no}</td>
+                <td>${board.id}</td>
+                <td>${board.title}</td>
+                <td>${board.writer}</td>
+                <td>${board.register}</td>
+                <td><button type="button" onclick="updateBoard(${board.id})">수정</button></td>
+                <td><button type="button" onclick="deleteBoard(${board.id})">삭제</button></td>
+            `;
+            table.appendChild(row);
+        });
+        // 테이블을 HTML 요소에 추가
+        const resultContainer = document.getElementById('searchResult');
+        resultContainer.innerHTML = ''; // 이전 결과를 지우고 새로운 결과를 추가
+        resultContainer.appendChild(table);
+    }
+      })
+    }
+  </script>
+</body>
+</html>

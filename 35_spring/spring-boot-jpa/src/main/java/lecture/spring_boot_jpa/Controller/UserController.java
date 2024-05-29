@@ -113,4 +113,16 @@ public class UserController {
             );
         }
     }
+    
+    // 한 명의 유저에 대한 모든 todo를 검색해보기
+    @GetMapping("/todos/{userId}")
+    public ResponseEntity<?> getTodosByUser(@PathVariable int userId) {
+        try {
+            return ResponseEntity.ok(userService.getTodosByUser(userId));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(
+                    ResErrorDTO.builder().error(e.getMessage()).build()
+            );
+        }
+    }
 }

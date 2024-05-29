@@ -1,10 +1,13 @@
 package lecture.spring_boot_jpa.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity // 해당 클래스가 entity임을 명시
 // 기본 생성자를 필요로함(무조건)
@@ -25,4 +28,8 @@ public class UserEntity {
 
     @Column(name = "nickname", nullable = false, length = 20)
     private String nickname;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<TodoEntity> todos;
 }

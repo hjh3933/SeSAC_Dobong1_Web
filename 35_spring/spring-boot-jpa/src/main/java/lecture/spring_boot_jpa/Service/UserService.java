@@ -66,4 +66,12 @@ public class UserService {
         // userRepository.deleteById(userEntity.getId()); // pk id로 삭제
         userRepository.delete(userEntity); // entity 정보로 삭제
     }
+
+    public UserEntity getTodosByUser(int userId) {
+        UserEntity userEntity = userRepository.findById(userId)
+                .orElseThrow(()->new RuntimeException("user doesn't exist"));
+
+        // UserEntity {id, name, nickname, todos: [] }
+        return userRepository.findTodosByUser(userId);
+    }
 }

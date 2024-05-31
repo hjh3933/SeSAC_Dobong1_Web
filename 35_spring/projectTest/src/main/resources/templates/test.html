@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Axios CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <title>test</title>
+</head>
+<body>
+  <div>
+    <h2>사진</h2>
+    <input type="file" name="file" id="file22">
+    <button type="button" onclick="upload()">업로드</button>
+    <div id="imgBox"></div>
+  </div>
+  <script>
+    const imgBox = document.getElementById("imgBox");
+    function upload() {
+      const file = document.getElementById("file22").files[0];
+      const formData = new FormData();
+      formData.append("file", file);
+
+      axios.post("/api/files/upload", formData).then((res) => {
+       console.log("성공"+res.data);
+        const img = document.createElement("img");
+        img.src = res.data;
+        imgBox.appendChild(img);
+      });
+    }
+  </script>
+</body>
+</html>

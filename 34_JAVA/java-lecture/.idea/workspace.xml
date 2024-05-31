@@ -5,54 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2af18266-5405-4f62-b165-4d452b64b855" name="Changes" comment="0513java study">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac2/Animal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac2/AnimalEx.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac2/Baek.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac2/Bus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac2/Car.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac2/Cat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac2/Circle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac2/Dog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac2/Kim.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac2/Motocycle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac2/Rectangle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac2/Shape.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac2/ShapeEx.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac2/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac2/StudentEx.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac2/Vehicle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac2/VehicleEx.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac3/Airplane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac3/Car.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac3/CdPlayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac3/Flyable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac3/Mp3Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac3/Music.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac3/MusicEx.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac3/Vehicle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/Prac3/VehicleEx.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/a_access_modifier/pack6/A.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/a_access_modifier/pack6/B.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/a_access_modifier/pack7/C.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/a_access_modifier/pack7/D.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/d_inheritance/Animal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/d_inheritance/Dog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/d_inheritance/DogEx.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/d_inheritance/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/d_inheritance/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/d_inheritance/StudentEx.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/e_abstract/Circle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/e_abstract/Shape.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/e_abstract/ShapeEx.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/e_abstract/Square.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/e_abstract/abstract.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/f_interface/Audio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/f_interface/RemoteControl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/f_interface/RemoteControlEX.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/f_interface/Television.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/f_interface/interfaceEx/InterfaceEx01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_05_Class/f_interface/interfaceEx/InterfaceEx02.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -146,7 +98,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/user/OneDrive/바탕 화면/github/SSAC_dobong/34_JAVA/java-lecture",
+    "last_opened_file_path": "C:/Users/user/OneDrive/바탕 화면/github/SSAC_dobong/35_spring/spring-boot-thymeleaf",
     "settings.editor.selected.configurable": "preferences.sourceCode.Java"
   }
 }]]></component>
